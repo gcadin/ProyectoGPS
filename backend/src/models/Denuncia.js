@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const denunciaSchema = mongoose.Schema({
 id_denuncia:{
@@ -35,4 +35,4 @@ imagen:[{
 }]
 })
 
-module.export = mongoose.model('Denuncia', denunciaSchema);
+module.exports = mongoose.model('Denuncia', denunciaSchema);

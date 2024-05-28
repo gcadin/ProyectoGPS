@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const consejoSchema = mongoose.Schema({
 
@@ -38,4 +38,4 @@ const consejoSchema = mongoose.Schema({
 })
 
 
-module.export = mongoose.model('Consejo', consejoSchema);
+module.exports = mongoose.model('Consejo', consejoSchema);

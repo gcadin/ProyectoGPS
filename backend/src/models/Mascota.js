@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const mascotaSchema = mongoose.Schema({
 
@@ -72,4 +72,4 @@ const mascotaSchema = mongoose.Schema({
     }]
 })
 
-module.export = mongoose.model('Mascota', mascotaSchema);
+module.exports = mongoose.model('Mascota', mascotaSchema);
