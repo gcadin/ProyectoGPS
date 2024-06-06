@@ -4,9 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { PersonCircle, Search } from 'react-bootstrap-icons';
+import { PersonCircle, Search, ChevronRight } from 'react-bootstrap-icons';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+const CustomDropdown = () => {
+    return (
+        <NavDropdown title="Comunidad" className='text-white'>
+            <NavDropdown.ItemText className='font-bold py-0 text-white'>Adopción</NavDropdown.ItemText>
+            <NavDropdown.Item className='text-white flex items-center' eventKey="4.1"><ChevronRight/> Perros</NavDropdown.Item>
+            <NavDropdown.Item className='text-white flex items-center' eventKey="4.2"><ChevronRight/>Gatos</NavDropdown.Item>
+            <NavDropdown.Item className='text-white flex items-center' eventKey="4.3"><ChevronRight/>Otros</NavDropdown.Item>
+            <NavDropdown.Divider color='white' />
+            <NavDropdown.Item className='text-white flex items-center' eventKey="4.4"><ChevronRight/>Colaboradores</NavDropdown.Item>
+        </NavDropdown>
+    )
+}
 
 const CustomSearch = () => {
     return(
@@ -52,7 +66,8 @@ const Header = () => {
                 <Container className='justify-center bg-greenaqua mx-0 max-w-full'>
                     <Nav  variant='underline' defaultActiveKey={location.pathname}>
                         <Nav.Link className='text-white' href='/'>Inicio</Nav.Link>
-                        <Nav.Link className='text-white' href='/comunidad'>Comunidad</Nav.Link>
+                        <CustomDropdown/>
+                        <Nav.Link className='text-white' href='/denuncias'>Denuncias</Nav.Link>
                         <Nav.Link className='text-white' href='/nosotros'>Nosotros</Nav.Link>
                         <Nav.Link className='text-white' href='/contacto'>Contacto</Nav.Link>
                     </Nav>
