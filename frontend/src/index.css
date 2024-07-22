@@ -21,3 +21,22 @@
 .max-w-full{
     max-width: 100% !important;
 }
+
+.nav-link,
+.nav-link:focus, 
+.nav-link:hover {
+    color: white !important;
+}
+
+.dropdown-menu{
+    color: white !important;
+    background-color: rgb(19 193 204 / var(--tw-bg-opacity)) !important;
+}
+
+.dropdown-item:hover{
+    background-color: gray !important;
+}
+
+.flex{
+    display: flex !important;
+}
