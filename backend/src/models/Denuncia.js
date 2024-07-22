@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
 
 const denunciaSchema = mongoose.Schema({
-id_denuncia:{
-    type: String,
-    required: true,
-    trim: true,
-    minLenght: 1,
-    maxLenght: 100
-},
+
 fecha:{
     type: Date,
     required: true

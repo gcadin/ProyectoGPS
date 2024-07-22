@@ -1,11 +1,17 @@
 const Denuncia = require('../models/Denuncia');
 
 const crearDenuncia = async (req, res) => {
-   
-   
     try {
-            const nuevaDenuncia = new Denuncia(req.body);
-        const denunciaGuardada = await nuevaDenuncia.save();
+        const { fecha, titulo, descripcion } = req.body;
+        const newDenuncia = new Denuncia({
+            
+            fecha,
+            titulo,
+            descripcion,
+            imagen: req.file ? req.file.filename : ''
+        });
+
+        const denunciaGuardada = await newDenuncia.save();
         res.status(201).json(denunciaGuardada);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -16,7 +22,7 @@ const getDenuncias = async (req, res) => {
 
 
     try {
-        const denuncias = await Denuncia.find().populate('usuario');
+        const denuncias = await Denuncia.find();
         res.status(200).json(denuncias);
       } catch (error) {
         res.status(400).json({ message: error.message });
