@@ -21,3 +21,14 @@
 .max-w-full{
     max-width: 100% !important;
 }
+
+.card-title, .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+}
