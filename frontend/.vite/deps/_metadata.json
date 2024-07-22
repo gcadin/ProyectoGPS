@@ -1,0 +1,136 @@
+{
+  "hash": "4893c1cc",
+  "configHash": "4f3a2648",
+  "lockfileHash": "449f031a",
+  "browserHash": "6649db21",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "2fa91c92",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "a456cd5e",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "8f931c41",
+      "needsInterop": false
+    },
+    "react-bootstrap/Carousel": {
+      "src": "../../node_modules/react-bootstrap/esm/Carousel.js",
+      "file": "react-bootstrap_Carousel.js",
+      "fileHash": "358397d1",
+      "needsInterop": false
+    },
+    "react-bootstrap/Image": {
+      "src": "../../node_modules/react-bootstrap/esm/Image.js",
+      "file": "react-bootstrap_Image.js",
+      "fileHash": "2649b208",
+      "needsInterop": false
+    },
+    "react-bootstrap/Nav": {
+      "src": "../../node_modules/react-bootstrap/esm/Nav.js",
+      "file": "react-bootstrap_Nav.js",
+      "fileHash": "ec41888c",
+      "needsInterop": false
+    },
+    "react-bootstrap/Container": {
+      "src": "../../node_modules/react-bootstrap/esm/Container.js",
+      "file": "react-bootstrap_Container.js",
+      "fileHash": "60d44341",
+      "needsInterop": false
+    },
+    "react-bootstrap/Navbar": {
+      "src": "../../node_modules/react-bootstrap/esm/Navbar.js",
+      "file": "react-bootstrap_Navbar.js",
+      "fileHash": "54b8d7e8",
+      "needsInterop": false
+    },
+    "react-bootstrap/Form": {
+      "src": "../../node_modules/react-bootstrap/esm/Form.js",
+      "file": "react-bootstrap_Form.js",
+      "fileHash": "e6160104",
+      "needsInterop": false
+    },
+    "react-bootstrap/Button": {
+      "src": "../../node_modules/react-bootstrap/esm/Button.js",
+      "file": "react-bootstrap_Button.js",
+      "fileHash": "b4889edc",
+      "needsInterop": false
+    },
+    "react-bootstrap-icons": {
+      "src": "../../node_modules/react-bootstrap-icons/dist/index.js",
+      "file": "react-bootstrap-icons.js",
+      "fileHash": "c40abfe2",
+      "needsInterop": false
+    },
+    "prop-types": {
+      "src": "../../node_modules/prop-types/index.js",
+      "file": "prop-types.js",
+      "fileHash": "af985a2c",
+      "needsInterop": true
+    },
+    "react-bootstrap/NavDropdown": {
+      "src": "../../node_modules/react-bootstrap/esm/NavDropdown.js",
+      "file": "react-bootstrap_NavDropdown.js",
+      "fileHash": "06a1a895",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-3EF4MKQU": {
+      "file": "chunk-3EF4MKQU.js"
+    },
+    "chunk-3Z6NSTXB": {
+      "file": "chunk-3Z6NSTXB.js"
+    },
+    "chunk-OFFDKN6X": {
+      "file": "chunk-OFFDKN6X.js"
+    },
+    "chunk-FIVNFGN5": {
+      "file": "chunk-FIVNFGN5.js"
+    },
+    "chunk-6PVCFW64": {
+      "file": "chunk-6PVCFW64.js"
+    },
+    "chunk-YG3P5BXE": {
+      "file": "chunk-YG3P5BXE.js"
+    },
+    "chunk-LS5DKNCV": {
+      "file": "chunk-LS5DKNCV.js"
+    },
+    "chunk-KIHMSFCY": {
+      "file": "chunk-KIHMSFCY.js"
+    },
+    "chunk-JF6VG5U5": {
+      "file": "chunk-JF6VG5U5.js"
+    },
+    "chunk-DYIYK56Z": {
+      "file": "chunk-DYIYK56Z.js"
+    },
+    "chunk-4BJW6OLS": {
+      "file": "chunk-4BJW6OLS.js"
+    },
+    "chunk-7JF6KNL3": {
+      "file": "chunk-7JF6KNL3.js"
+    },
+    "chunk-WAERY4PI": {
+      "file": "chunk-WAERY4PI.js"
+    },
+    "chunk-FHAMWGQN": {
+      "file": "chunk-FHAMWGQN.js"
+    },
+    "chunk-QY3QVPNU": {
+      "file": "chunk-QY3QVPNU.js"
+    },
+    "chunk-LQ2VYIYD": {
+      "file": "chunk-LQ2VYIYD.js"
+    }
+  }
+}

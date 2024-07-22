@@ -51,7 +51,7 @@ Avatar.propTypes = {
 };
 
 
-const Header = () => {
+const Header = ( ) => {
     let location = useLocation();
     return(
         <>

@@ -4,7 +4,7 @@ const crearDenuncia = async (req, res) => {
    
    
     try {
-            const nuevaDenuncia = new Denuncia(req.body);
+        const nuevaDenuncia = new Denuncia(req.body);
         const denunciaGuardada = await nuevaDenuncia.save();
         res.status(201).json(denunciaGuardada);
     } catch (error) {
@@ -16,7 +16,7 @@ const getDenuncias = async (req, res) => {
 
 
     try {
-        const denuncias = await Denuncia.find().populate('usuario');
+        const denuncias = await Denuncia.find();
         res.status(200).json(denuncias);
       } catch (error) {
         res.status(400).json({ message: error.message });
