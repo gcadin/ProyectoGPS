@@ -2,45 +2,37 @@ const mongoose = require('mongoose');
 
 const mascotaSchema = mongoose.Schema({
 
-
-    id_mascota:{
-        type: String,
-        required: true,
-        trim: true,
-        minLenght: 1,
-        maxLenght: 30
-    },
     nombre:{
-         type: String,
-        required: true,
+        type: String,
+        required: false,
         trim: true,
         minLenght: 1,
         maxLenght: 30
     },
     descripcion:{			
-            type: String,
-            required: true,
-            trim: true,
-            minLenght: 1,
-            maxLenght: 700					
+        type: String,
+        required: false,
+        trim: true,
+        minLenght: 1,
+        maxLenght: 700					
     },
     especie:{
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minLenght: 1,
         maxLenght: 30
     },
     edad:{
-        type: Number,
-        required: true,
+        type: String,
+        required: false,
         trim: true,
         minLenght: 1,
         maxLenght: 30
     },
     tamano:{
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minLenght: 1,
         maxLenght: 30
@@ -57,18 +49,28 @@ const mascotaSchema = mongoose.Schema({
         required: false,
         trim: true,
         minLenght: 1,
-        maxLenght: 30
+        maxLenght: 130
     }],
-    esterilizacion:{
-        type: Boolean,
-        default: false
-    },
-    foto:[{
+    vacunas2:{
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minLenght: 1,
-        maxLenght: 150
+        maxLenght: 130
+    },
+    esterilizacion:{
+        type: String,
+        required: false,
+        trim: true,
+        minLenght: 1,
+        maxLenght: 30
+    },
+    imagen:[{
+    type: String,
+    required: false,
+    trim: true,
+    minLenght: 1,
+    maxLenght: 100
     }]
 })
 

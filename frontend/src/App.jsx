@@ -8,6 +8,7 @@ import Nosotros from './pages/Nosotros'
 import CustomCarousel from './components/Carousel'
 import RegistrarMascota from './pages/mascotas/registrarMascota'
 import DenunciaList from './pages/denuncias/Denuncias'
+import MascotasList from './pages/mascotas/listarMascotas'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<AuthLayout/> }>
             <Route path='/' element={<> <CustomCarousel/> </>}/>
             <Route path='/registrarMascota' element={<RegistrarMascota/>}/>
+            <Route path='/listarMascotas' element={<MascotasList/>}/>
             <Route path='/denuncias' element={<DenunciaList/>}/>
             <Route path='/login' element={<LoginForm/>}/>
             <Route path='/registro' element={<RegisterForm/>}/>
