@@ -1,3 +1,4 @@
+
 const Denuncia = require('../models/Denuncia');
 
 const crearDenuncia = async (req, res) => {
