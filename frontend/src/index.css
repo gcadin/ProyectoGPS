@@ -32,3 +32,13 @@
   -webkit-line-clamp: 3; 
   -webkit-box-orient: vertical;
 }
+
+.button-style {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+@media (min-width: 768px){
+
+}

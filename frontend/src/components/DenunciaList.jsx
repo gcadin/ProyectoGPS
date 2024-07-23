@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { formatDate } from '../utils/formatDate';
 
 const DenunciaList = () => {
   const [denuncias, setDenuncias] = useState([]);
@@ -41,6 +42,7 @@ const DenunciaList = () => {
               <img src={`http://localhost:3000/uploads/${denuncia.imagen}`} className="card-img-top" alt="Imagen de la denuncia" />
               <div className="card-body">
                 <h5 className="card-title">{denuncia.titulo}</h5>
+                <p className="card-text">Publicado a las: {formatDate(denuncia.fecha)}</p>
                 <p className="card-text">{denuncia.descripcion}</p>
                 <Link to={`/denuncias/${denuncia._id}`}>
                   <button type="button" className="btn btn-primary">Ver Más</button>

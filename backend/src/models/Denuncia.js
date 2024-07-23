@@ -4,7 +4,7 @@ const denunciaSchema = mongoose.Schema({
 
 fecha:{
     type: Date,
-    required: true
+    default: Date.now
 },
 titulo:{
     type: String,
