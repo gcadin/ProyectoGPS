@@ -5,11 +5,12 @@ import '../../index.css';
 
 const Denuncias = () => {
   return (
-    <div>
-      <div className='button-style'><DenunciarButton/> </div>
-       
-      <DenunciaList />
+    <div className="container">
+    <div className="button-style">
+      <DenunciarButton />
     </div>
+    <DenunciaList />
+  </div>
   );
 };
 

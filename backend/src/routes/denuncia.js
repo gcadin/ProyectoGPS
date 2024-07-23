@@ -1,27 +1,15 @@
 const express = require('express');
-const multer = require('multer');
-const path = require('path');
+const upload = require('../middlewares/multer');
 const {
-    crearDenuncia,
-    getDenuncias,
-    getDenunciaById,
-    updateDenuncia,
-    deleteDenuncia
+  crearDenuncia,
+  getDenuncias,
+  getDenunciaById,
+  updateDenuncia,
+  deleteDenuncia
 } = require('../controllers/denuncia.controllers.js');
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, path.join(__dirname, '../uploads')); 
-    },
-    filename: (req, file, cb) => {
-      cb(null, Date.now() + path.extname(file.originalname));
-    }
-  });
-  
-  const upload = multer({ storage });
-  
 router.post('/denuncias', upload.single('imagen'), crearDenuncia);
 router.get('/denuncias', getDenuncias);
 router.get('/denuncias/:id', getDenunciaById);

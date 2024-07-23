@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 
 const Denuncia = require('../models/Denuncia');
 
@@ -53,7 +55,13 @@ const updateDenuncia = async (req, res) => {
 const deleteDenuncia = async (req, res) => {
     try {
         const denunciaEliminada = await Denuncia.findByIdAndDelete(req.params.id);
+        const ubiImagen = path.join(__dirname, '../uploads', path.basename(denunciaEliminada.imagen[0]));
+
         if (!denunciaEliminada) return res.status(404).json({ message: 'Denuncia no encontrada' });
+        fs.unlink(ubiImagen, (err) => {
+               return res.status(500).json({ message: ' no c borro la foto' });
+            })
+        
         res.status(200).json({ message: 'Denuncia eliminada' });
     } catch (error) {
         res.status(400).json({ message: error.message });

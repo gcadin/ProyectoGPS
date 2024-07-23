@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import axios from 'axios';
-import {popSuccess, popError} from '../utils/popUp.js';
+import {popSuccess, popError} from '../../utils/popUp';
 
 const DenunciaForm = () => {
   const [image, setImage] = useState(null);
@@ -21,7 +21,7 @@ const DenunciaForm = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('Respuesta del servidor:', response.data);
+      console.log('prueba:', response.data.image);
       popSuccess('Denuncia Publicada Correctamente')
     } catch (error) {
       console.error('Error al enviar datos:', error);
