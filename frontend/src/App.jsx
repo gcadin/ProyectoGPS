@@ -6,8 +6,8 @@ import Contacto from './pages/Contacto';
 import Nosotros from './pages/Nosotros';
 import Denuncias from './pages/denuncias/Denuncias';
 import CustomCarousel from './components/Carousel';
-import DenunciaDetails from './components/DenunciaDetails';
-import DenunciaForm from './components/DenunciaForm';
+import DenunciaDetails from './pages/denuncias/DenunciaDetails';
+import DenunciaForm from './pages/denuncias/DenunciaForm';
 
 
 

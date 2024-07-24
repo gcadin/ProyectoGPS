@@ -32,10 +32,16 @@ const DenunciaDetails = () => {
   }
 
   return (
-    <div>
-      <h1>{denuncia.titulo}</h1>
-      <img src={`http://localhost:3000/uploads/${denuncia.imagen}`} alt="Imagen de la denuncia" />
-      <p>{denuncia.descripcion}</p>
+    <div className="denuncia-details container mt-5">
+      <h1 className="denuncia-title">{denuncia.titulo}</h1>
+      <p className="denuncia-date">Publicado el: {new Date(denuncia.fecha).toLocaleDateString()}</p>
+      <img 
+        src={`http://localhost:3000/uploads/${denuncia.imagen}`} 
+        className="img-pag" 
+        alt="Imagen de la denuncia" 
+      />
+      <h2 className="denuncia-description-title">Descripción</h2>
+      <p className="denuncia-description">{denuncia.descripcion}</p>
     </div>
   );
 };
