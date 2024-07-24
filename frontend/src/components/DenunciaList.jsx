@@ -13,7 +13,7 @@ const DenunciaList = () => {
       try {
         const response = await axios.get('http://localhost:3000/api/denuncias');
         console.log('API Response:', response.data);
-        setDenuncias(Array.isArray(response.data) ? response.data : []);
+        setDenuncias(Array.isArray(response.data) ? response.data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha)): []);
         setLoading(false);
       } catch (err) {
         console.error('API Error:', err);
