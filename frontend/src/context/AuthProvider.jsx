@@ -13,6 +13,9 @@ const AuthProvider = (props) => {
     useEffect(() => {
         const autenticarUsuario = async () => {
             const token = localStorage.getItem('token');
+            console.log(token);
+
+            console.log(cargando);
 
             if(!token) {
                 setCargando(false);
@@ -30,7 +33,6 @@ const AuthProvider = (props) => {
                 const {data} = await axios.get('http://localhost:3000/api/perfil', config)
 
                 setAuth(data);
-                console.log(data);
             } catch (error) {
                 console.log(error);
             }
@@ -45,6 +47,9 @@ const AuthProvider = (props) => {
     const CerrarSesion = () => {
         localStorage.removeItem('token');
         setAuth({});
+        
+
+
     }
 
     return(

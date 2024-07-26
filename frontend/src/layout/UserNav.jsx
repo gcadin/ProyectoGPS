@@ -6,13 +6,17 @@ const UserNav = () => {
 
     const { auth, cargando } = useAuth();
 
+    // console.log(auth);
+    // console.log(cargando);
+
     if(cargando) return 'cargando...'
+
 
     return (
         <>
             <UserHeader/>
 
-            {auth?._id ? <Outlet />: <Navigate to='/' />}
+            {auth?._id ? <Outlet />: <Navigate to='/login' />}
         </>
         
     )

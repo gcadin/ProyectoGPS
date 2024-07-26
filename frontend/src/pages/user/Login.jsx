@@ -13,10 +13,11 @@ import { useNavigate, Navigate } from 'react-router-dom';
 
 const Login = () => {
   const {auth} = useAuth();
+  console.log(auth);
 
   return(
     <>
-      {auth?._id ? <Navigate to='/usuario' /> : <LoginForm />}
+      {auth?._id ? <Navigate to='/' /> : <LoginForm />}
 
     </>
   )
@@ -29,8 +30,6 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -40,7 +39,7 @@ const LoginForm = () => {
       localStorage.setItem('token', data.token);
       console.log('success')
 
-      navigate('/usuario')
+      window.location.reload();
     }catch(err){
       console.log(err);
     }

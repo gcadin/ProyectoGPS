@@ -42,11 +42,20 @@ const CustomSearch = () => {
 
 const Avatar = (props) => {
     const [isFocused, setIsFocused] = useState(false);
-    const {auth} = useAuth();
+    const {auth, CerrarSesion} = useAuth();
+
+    console.log(auth)
     if (props.page === '/Login') {
         return null;
     }else {
-        if(!auth){
+        if(Object.keys(auth).length == 0){
+            return(
+                <Navbar.Brand href='/Login'>
+                    <PersonCircle size={38}/>
+                </Navbar.Brand>
+            )
+        }else
+        {
             return(
                 <Dropdown>
                   <Dropdown.Toggle className={`flex justify-center items-center border-0 text-black ${isFocused ? 'bg-white': 'bg-white'} `} variant='outline-dark' onFocus={() => setIsFocused(true)} id="dropdown-basic">
@@ -56,17 +65,11 @@ const Avatar = (props) => {
                   <Dropdown.Menu className='bg-white text-black'>
                     <Dropdown.Item href="/usuario">Perfil</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">Configuracion</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Cerrar sesión</Dropdown.Item>
+                    <Dropdown.Item href="" onClick={CerrarSesion}>Cerrar sesión</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
             )
-        }else
-        {
-            return(
-                <Navbar.Brand href='/Login'>
-                    <PersonCircle size={38}/>
-                </Navbar.Brand>
-            )
+            
            
         }
     }
