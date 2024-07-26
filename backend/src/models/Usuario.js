@@ -58,7 +58,11 @@ const usuarioSchema = new mongoose.Schema({
         trim: true,
         minLength: 0,
         maxLength: 100
-    }]
+    }],
+    mascotas: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Mascota'
+  }]
 });
 
 module.exports = mongoose.model('Usuario', usuarioSchema);

@@ -103,7 +103,7 @@ const UserSideBar = () => {
                   </SidebarMenu.Nav.Link>
                 </SidebarMenu.Nav>
                 <SidebarMenu.Nav>
-                  <SidebarMenu.Nav.Link className="flex items-center ml-4 my-1 text-white" style={{ textDecoration: 'none' }}>
+                  <SidebarMenu.Nav.Link href='/usuario/listarMascotasUsuario' className="flex items-center ml-4 my-1 text-white" style={{ textDecoration: 'none' }}>
                     <SidebarMenu.Nav.Icon>
                       <List />
                     </SidebarMenu.Nav.Icon>

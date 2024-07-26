@@ -13,6 +13,7 @@ import EditarMascota from './pages/mascotas/editarMascota'
 import { AuthProvider } from './context/AuthProvider'
 import Perfil from './pages/user/Perfil'
 import UserNav from './layout/UserNav'
+import MascotasListUser from './pages/mascotas/listarMascotasUsuario'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path='/usuario' element={<UserNav/>}>
               <Route index element={<Perfil/>}/>
               <Route path='/usuario/registrarMascota' element={<RegistrarMascota/>}/>
+              <Route path='/usuario/listarMascotasUsuario' element={<MascotasListUser/>}/>
               <Route path='/usuario/editarMascota/:id' element={<EditarMascota/>}/>
 
             </Route>

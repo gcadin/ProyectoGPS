@@ -45,7 +45,7 @@ const Avatar = (props) => {
     const {auth, CerrarSesion} = useAuth();
 
     console.log(auth)
-    if (props.page === '/Login') {
+    if (props.page == '/Login') {
         return null;
     }else {
         if(Object.keys(auth).length == 0){

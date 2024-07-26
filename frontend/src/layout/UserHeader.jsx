@@ -21,8 +21,8 @@ const Avatar = () => {
             
           <Dropdown.Menu className='bg-white text-black'>
             <Dropdown.Item href="/usuario">Perfil</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Configuracion</Dropdown.Item>
-            <Dropdown.Item href='/login' onClick={CerrarSesion}>Cerrar sesión</Dropdown.Item>
+            <Dropdown.Item href="#">Configuracion</Dropdown.Item>
+            <Dropdown.Item href='/' onClick={CerrarSesion}>Cerrar sesión</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
     );

@@ -71,7 +71,12 @@ const mascotaSchema = mongoose.Schema({
     trim: true,
     minLenght: 0,
     maxLenght: 100
-    }]
+    }],
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Mascota', mascotaSchema);

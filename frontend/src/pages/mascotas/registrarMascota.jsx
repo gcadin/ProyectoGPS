@@ -6,8 +6,11 @@ import Row from 'react-bootstrap/Row';
 import {useState} from 'react';
 import axios from 'axios';
 import UserSideBar from '../../layout/userSideBar';
+import useAuth from '../../hooks/useAuth';
 
 const RegistrarMascota = () => {
+  const {auth} = useAuth();
+
   const [ nombre , setNombre ] = useState('');
   const [ edad , setEdad ] = useState('');
   const [ tamano , setTamano ] = useState('');
@@ -49,6 +52,7 @@ const RegistrarMascota = () => {
     formData.append('vacunas2', vacunas2);
     formData.append('esterilizacion', esterilizacion);
     formData.append('imagen', imagen);
+    formData.append('usuario', auth._id);
     
     
     try{

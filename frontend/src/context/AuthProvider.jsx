@@ -13,9 +13,6 @@ const AuthProvider = (props) => {
     useEffect(() => {
         const autenticarUsuario = async () => {
             const token = localStorage.getItem('token');
-            console.log(token);
-
-            console.log(cargando);
 
             if(!token) {
                 setCargando(false);
@@ -48,6 +45,7 @@ const AuthProvider = (props) => {
         localStorage.removeItem('token');
         setAuth({});
         
+        window.location.reload();
 
 
     }

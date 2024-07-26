@@ -8,12 +8,11 @@ import Image from 'react-bootstrap/Image';
 import styles from './Login.module.css';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useNavigate, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 
 const Login = () => {
   const {auth} = useAuth();
-  console.log(auth);
 
   return(
     <>

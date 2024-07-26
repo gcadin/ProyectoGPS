@@ -2,7 +2,7 @@ const Mascota = require('../models/Mascota');
 
 const crearMascota = async (req, res) => {
     try {
-        const{nombre, descripcion, edad, tamano, especie, raza, esterilizacion, vacunas, vacunas2} = req.body;
+        const{nombre, descripcion, edad, tamano, especie, raza, esterilizacion, vacunas, vacunas2, usuario} = req.body;
         const nuevaMascota = new Mascota({
             nombre: nombre,
             descripcion: descripcion,
@@ -13,7 +13,8 @@ const crearMascota = async (req, res) => {
             esterilizacion: esterilizacion,
             vacunas: vacunas,
             vacunas2: vacunas2,
-            imagen: req.file ? req.file.filename:''
+            imagen: req.file ? req.file.filename:'',
+            usuario: usuario
         })
         const MascotaGuardada = await nuevaMascota.save();
         res.status(201).json(MascotaGuardada);
@@ -24,6 +25,14 @@ const crearMascota = async (req, res) => {
 const getMascotas = async (req, res) => {
     try {
         const Mascotas = await Mascota.find();
+        res.status(200).json(Mascotas);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+const getMascotasUsuario = async (req, res) => {
+    try {
+        const Mascotas = await Mascota.find({usuario: req.body.id}).populate('usuario');
         res.status(200).json(Mascotas);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -60,6 +69,7 @@ const deleteMascota = async (req, res) => {
 module.exports = {
     crearMascota,
     getMascotas,
+    getMascotasUsuario,
     getMascotaById,
     updateMascota,
     deleteMascota
