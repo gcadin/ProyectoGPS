@@ -8,8 +8,15 @@ import { PersonCircle, Search, ChevronRight } from 'react-bootstrap-icons';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Dropdown } from 'react-bootstrap';
+import useAuth from '../hooks/useAuth';
+import { useState } from 'react';
+
 
 const CustomDropdown = () => {
+
+    
+
     return (
         <NavDropdown title="Comunidad" className='text-white'>
             <NavDropdown.ItemText className='font-bold py-0 text-white'>Adopción</NavDropdown.ItemText>
@@ -36,13 +43,23 @@ const CustomSearch = () => {
 }
 
 const Avatar = (props) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const {auth} = useAuth();
     if (props.page === '/Login') {
         return null;
     }else{
         return(
-            <Navbar.Brand href='/Login'>
-                <PersonCircle size={38}/>
-            </Navbar.Brand>
+            <Dropdown>
+              <Dropdown.Toggle className={`flex justify-center items-center border-0 text-black ${isFocused ? 'bg-white': 'bg-white'} `} variant='outline-dark' onFocus={() => setIsFocused(true)} id="dropdown-basic">
+                {auth.imagen ? <Image width={38} className='rounded-3xl' src={`http://localhost:3000/uploads/${auth.imagen}`} ></Image> :<PersonCircle size={38}/>}
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu className='bg-white text-black'>
+                <Dropdown.Item href="/usuario">Perfil</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Configuracion</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Cerrar sesión</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
         )
     }
 }

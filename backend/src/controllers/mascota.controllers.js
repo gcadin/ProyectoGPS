@@ -15,7 +15,6 @@ const crearMascota = async (req, res) => {
             vacunas2: vacunas2,
             imagen: req.file ? req.file.filename:''
         })
-    //    const nuevaMascota = new Mascota(req.body);
         const MascotaGuardada = await nuevaMascota.save();
         res.status(201).json(MascotaGuardada);
     } catch (error) {

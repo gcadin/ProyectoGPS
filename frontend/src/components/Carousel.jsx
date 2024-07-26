@@ -1,8 +1,10 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'react-bootstrap/Image';
+import MascotasList from '../pages/mascotas/listarMascotas';
 
 function CustomCarousel() {
     return (
+      <>
         <Carousel>
             <Carousel.Item >
               <Image src='/banner1.jpeg'></Image>
@@ -23,6 +25,9 @@ function CustomCarousel() {
               </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
+        <MascotasList />
+      </>
+        
     );
 }
 

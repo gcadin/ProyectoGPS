@@ -1,52 +1,92 @@
 import { useState } from "react";
-import styles from './LoginForm.module.css'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Image from 'react-bootstrap/Image';
+import styles from './Login.module.css';
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import { useNavigate, Navigate } from 'react-router-dom';
 
+
+const Login = () => {
+  const {auth} = useAuth();
+
+  return(
+    <>
+      {auth?._id ? <Navigate to='/usuario' /> : <LoginForm />}
+
+    </>
+  )
+}
 
 const LoginForm = () => {
-    const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
 
-  const handleInputChange = (e) => {
-    if (e.target.name === "email") {
-      setEmail(e.target.value);
-    } else if (e.target.name === "phone") {
-      setPhone(e.target.value);
+  
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try{
+      const url = 'http://localhost:3000/api/login';
+      const { data } = await axios.post(url, {email, password})
+      localStorage.setItem('token', data.token);
+      console.log('success')
+
+      navigate('/usuario')
+    }catch(err){
+      console.log(err);
     }
-  };
+
+     
+  }
 
   return (
-    <form className = {styles.loginForm}>
-      <label className= {styles.label}>
-        Correo electrónico:
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleInputChange}
-          required
-          className= {styles.input}
-        />
-      </label>
-      <label>
-        Número de teléfono:
-        <input
-          type="tel"
-          name="phone"
-          value={phone}
-          onChange={handleInputChange}
-          required
-          className = {styles.input}
-        />
-      </label>
-      <input type="submit" value="Iniciar Sesión" className = {styles.input}  />
-      <div className="flex justify-center">
-        <label>
-            ¿Aun no estas registrado?
-        </label>
-        <a href="/register">registrarse</a>
-      </div>
-    </form>
+    <>
+      <Container className={styles.contenedor}>
+          <Row className='w-100 border rounded'>
+            <Col className='p-0' md={6}>
+                <Image className={styles.imagenLogin} src="/portada.jpg" >
+                </Image>
+            </Col>
+            <Col md={6} className='p-2 flex flex-col justify-center'>
+              <h3 className='text-center m-0'>Iniciar sesión</h3>
+              <hr className="mt-2"/>
+              <Form className='w-100' onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="Email">
+                  <Form.Label>Corre Electronico</Form.Label>
+                  <Form.Control required className='border' value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder='usuario@ejemplo.com'/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="Password">
+                  <Form.Label>Contraseña</Form.Label>
+                  <Form.Control required className='border' value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder=''/>
+                </Form.Group>
+
+                <div className='mt-3 flex flex-col justify-center items-center'>
+                  <Button variant="primary" className="btn btn-primary" type="submit">
+                    Ingresar
+                  </Button>
+                  <div className="flex mt-3">
+                    <label>
+                        ¿Aun no estas registrado?
+                    </label>
+                    <a href="/registro">registrarse</a>
+                  </div>
+                </div>
+
+              </Form>
+            </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
-export default LoginForm;
+export default Login;

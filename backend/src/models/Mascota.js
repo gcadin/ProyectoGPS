@@ -69,7 +69,7 @@ const mascotaSchema = mongoose.Schema({
     type: String,
     required: false,
     trim: true,
-    minLenght: 1,
+    minLenght: 0,
     maxLenght: 100
     }]
 })

@@ -1,36 +1,51 @@
 const mongoose = require('mongoose');
 
 const usuarioSchema = new mongoose.Schema({
-    rut: {
+    nombre: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minLength: 1,
         maxLength: 12,
     },
+    apellidos: {
+        type: String,
+        required: false,
+        trim: true,
+        minLength: 1,
+        maxLength: 30,
+    },
     fecha_nacimiento: {
         type: Date,
-        required: true
+        required: false
     },
     telefono: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minLength: 1,
         maxLength: 30
     },
     email: {
         type: String,
-        required: true,
+        required: false,
+        unique: true,
         trim: true,
         minLength: 1,
         maxLength: 100
     },
     direccion: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         minLength: 1,
+        maxLength: 100
+    },
+    password: {
+        type: String,
+        required: false,
+        trim: true,
+        minLength: 8,
         maxLength: 100
     },
     rol: {
@@ -38,10 +53,10 @@ const usuarioSchema = new mongoose.Schema({
         enum: ['adoptante', 'cuidador', 'admin'],
         default: 'adoptante'
     },
-    foto: [{
+    imagen: [{
         type: String,
         trim: true,
-        minLength: 1,
+        minLength: 0,
         maxLength: 100
     }]
 });

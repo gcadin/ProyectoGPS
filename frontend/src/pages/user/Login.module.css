@@ -1,0 +1,21 @@
+.imagenLogin{
+    display: block;
+}
+
+.contenedor{
+    display: flex;
+    margin: 3em auto;
+    justify-content: center;
+}
+
+@media (max-width: 768px){
+    .imagenLogin{
+        display: none;
+    }
+}
+
+@media (min-width: 990px){
+    .contenedor{
+        max-width: 800px!important;
+    }
+}
