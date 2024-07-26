@@ -15,8 +15,6 @@ import { useState } from 'react';
 
 const CustomDropdown = () => {
 
-    
-
     return (
         <NavDropdown title="Comunidad" className='text-white'>
             <NavDropdown.ItemText className='font-bold py-0 text-white'>Adopción</NavDropdown.ItemText>
@@ -47,20 +45,30 @@ const Avatar = (props) => {
     const {auth} = useAuth();
     if (props.page === '/Login') {
         return null;
-    }else{
-        return(
-            <Dropdown>
-              <Dropdown.Toggle className={`flex justify-center items-center border-0 text-black ${isFocused ? 'bg-white': 'bg-white'} `} variant='outline-dark' onFocus={() => setIsFocused(true)} id="dropdown-basic">
-                {auth.imagen ? <Image width={38} className='rounded-3xl' src={`http://localhost:3000/uploads/${auth.imagen}`} ></Image> :<PersonCircle size={38}/>}
-              </Dropdown.Toggle>
+    }else {
+        if(!auth){
+            return(
+                <Dropdown>
+                  <Dropdown.Toggle className={`flex justify-center items-center border-0 text-black ${isFocused ? 'bg-white': 'bg-white'} `} variant='outline-dark' onFocus={() => setIsFocused(true)} id="dropdown-basic">
+                    {auth.imagen ? <Image width={38} className='rounded-3xl' src={`http://localhost:3000/uploads/${auth.imagen}`} ></Image> :<PersonCircle size={38}/>}
+                  </Dropdown.Toggle>
 
-              <Dropdown.Menu className='bg-white text-black'>
-                <Dropdown.Item href="/usuario">Perfil</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Configuracion</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Cerrar sesión</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-        )
+                  <Dropdown.Menu className='bg-white text-black'>
+                    <Dropdown.Item href="/usuario">Perfil</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Configuracion</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Cerrar sesión</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+            )
+        }else
+        {
+            return(
+                <Navbar.Brand href='/Login'>
+                    <PersonCircle size={38}/>
+                </Navbar.Brand>
+            )
+           
+        }
     }
 }
 Avatar.propTypes = {

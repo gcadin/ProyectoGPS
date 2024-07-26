@@ -114,6 +114,7 @@ const UserSideBar = () => {
                 </SidebarMenu.Nav>
               </SidebarMenu.Sub.Collapse>
             </SidebarMenu.Sub>
+            <hr />
             <SidebarMenu.Sub className="mb-3">
               <SidebarMenu.Sub.Toggle className="flex justify-center items-center ml-2 text-white font-bold">
                 <SidebarMenu.Nav.Icon className="mr-2">

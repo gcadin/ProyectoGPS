@@ -11,7 +11,7 @@ import { useState } from 'react';
 const Avatar = () => {
 
     const [isFocused, setIsFocused] = useState(false);
-    const { auth } = useAuth();
+    const { auth, CerrarSesion } = useAuth();
         
     return (
         <Dropdown>
@@ -22,7 +22,7 @@ const Avatar = () => {
           <Dropdown.Menu className='bg-white text-black'>
             <Dropdown.Item href="/usuario">Perfil</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Configuracion</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Cerrar sesión</Dropdown.Item>
+            <Dropdown.Item onClick={CerrarSesion}>Cerrar sesión</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
     );
