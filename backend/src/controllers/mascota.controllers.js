@@ -3,6 +3,8 @@ const Mascota = require('../models/Mascota');
 const crearMascota = async (req, res) => {
     try {
         const{nombre, descripcion, edad, tamano, especie, raza, esterilizacion, vacunas, vacunas2, usuario} = req.body;
+
+        console.log(typeof(vacunas));
         const nuevaMascota = new Mascota({
             nombre: nombre,
             descripcion: descripcion,

@@ -43,7 +43,7 @@ const AuthProvider = (props) => {
 
     const CerrarSesion = () => {
         localStorage.removeItem('token');
-        setAuth({});
+        setAuth(null);
         
         window.location.reload();
 

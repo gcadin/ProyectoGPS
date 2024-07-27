@@ -12,11 +12,17 @@ const Avatar = () => {
 
     const [isFocused, setIsFocused] = useState(false);
     const { auth, CerrarSesion } = useAuth();
-        
+
+    const hasImage = Array.isArray(auth.imagen) && auth.imagen.length > 0 && auth.imagen[0].trim() !== '';
+    
     return (
         <Dropdown>
           <Dropdown.Toggle className={`flex justify-center items-center border-0 text-black ${isFocused ? 'bg-white': 'bg-white'} `} variant='outline-dark' onFocus={() => setIsFocused(true)} id="dropdown-basic">
-            {auth.imagen ? <Image width={44} className='rounded-3xl' src={`http://localhost:3000/uploads/${auth.imagen}`} ></Image> :<PersonCircle size={38}/>}
+            {hasImage ? 
+                <Image width={44} className='rounded-3xl' src={`http://localhost:3000/uploads/${auth.imagen[0]}`} /> 
+                : 
+                <PersonCircle size={38}/>
+            }       
           </Dropdown.Toggle>
             
           <Dropdown.Menu className='bg-white text-black'>

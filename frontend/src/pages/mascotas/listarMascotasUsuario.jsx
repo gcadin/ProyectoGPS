@@ -70,7 +70,7 @@ const MascotasListUser = () => {
                     <p className="card-text"><b>Descripción adicional:</b> {mascota.descripcion}</p>
                     <div className='flex justify-end'>
                       <div>
-                        <Link to={`/editarMascota/${mascota._id}`}>
+                        <Link to={`/usuario/editarMascota/${mascota._id}`}>
                           <button type="button" className="btn btn-primary">Editar</button>
                         </Link>
                       </div>

@@ -3,6 +3,7 @@ import { Button, Form, Container, Col, Row, InputGroup } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import UserSideBar from '../../layout/userSideBar';
 
 const formatDate = (isoDate) => {
   const [year, month, day] = isoDate.split('T')[0].split('-');
@@ -65,68 +66,75 @@ function EditarPerfil() {
   };
 
   return (
-    <Container>
-      <Container className='w-100 flex justify-center mt-3 p-2'>
-        <Form className='w-100 border rounded m-3 p-4' onSubmit={handleSubmit}>
-          <label className='text-2xl'>Editar Perfil</label>
-          <hr />
-          <Row>
-            <Form.Group as={Col} md={6} className="mb-3" controlId="Nombre">
-              <Form.Label><b>Nombre:</b></Form.Label>
-              <Form.Control required value={nombre} onChange={e => setNombre(e.target.value)} className='border' type="text" name='nombre' />
-            </Form.Group>
+    <div style={{ display: 'flex', height: '100vh' }}>
+            <div style={{ flex: '0 0 auto' }}>
+                <UserSideBar />
+            </div>
+            <div style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column' }}>
+        <Container>
+          <Container className='w-100 flex justify-center mt-3 p-2'>
+            <Form className='w-100 border rounded m-3 p-4' onSubmit={handleSubmit}>
+              <label className='text-2xl'>Editar Perfil</label>
+              <hr />
+              <Row>
+                <Form.Group as={Col} md={6} className="mb-3" controlId="Nombre">
+                  <Form.Label><b>Nombre:</b></Form.Label>
+                  <Form.Control required value={nombre} onChange={e => setNombre(e.target.value)} className='border' type="text" name='nombre' />
+                </Form.Group>
 
-            <Form.Group as={Col} md={6} className="mb-3" controlId="Apellidos">
-              <Form.Label><b>Apellidos:</b></Form.Label>
-              <Form.Control required value={apellidos} onChange={e => setApellidos(e.target.value)} className='border' type="text" name='apellidos' />
-            </Form.Group>
-          </Row>
+                    <Form.Group as={Col} md={6} className="mb-3" controlId="Apellidos">
+                      <Form.Label><b>Apellidos:</b></Form.Label>
+                      <Form.Control required value={apellidos} onChange={e => setApellidos(e.target.value)} className='border' type="text" name='apellidos' />
+                    </Form.Group>
+                  </Row>
 
-          <Form.Group className="mb-3" controlId="Email">
-            <Form.Label><b>Correo electrónico:</b></Form.Label>
-            <Form.Control value={email} onChange={e => setEmail(e.target.value)} className='border' type="email" name='email' />
-          </Form.Group>
+                  <Form.Group className="mb-3" controlId="Email">
+                    <Form.Label><b>Correo electrónico:</b></Form.Label>
+                    <Form.Control value={email} onChange={e => setEmail(e.target.value)} className='border' type="email" name='email' />
+                  </Form.Group>
 
-          <Row>
-            <Form.Group as={Col} md={4} className="mb-3" controlId="Telefono">
-              <Form.Label><b>Teléfono:</b></Form.Label>
-              <InputGroup>
-                <InputGroup.Text id="inputGroupPrepend">+56</InputGroup.Text>
-                <Form.Control required value={telefono} onChange={e => setTelefono(e.target.value)} className='border' type="text" name='telefono' />
-              </InputGroup>
-            </Form.Group>
+                  <Row>
+                    <Form.Group as={Col} md={4} className="mb-3" controlId="Telefono">
+                      <Form.Label><b>Teléfono:</b></Form.Label>
+                      <InputGroup>
+                        <InputGroup.Text id="inputGroupPrepend">+56</InputGroup.Text>
+                        <Form.Control required value={telefono} onChange={e => setTelefono(e.target.value)} className='border' type="text" name='telefono' />
+                      </InputGroup>
+                    </Form.Group>
 
-            <Form.Group as={Col} md={4} className="mb-3" controlId="Direccion">
-              <Form.Label><b>Dirección:</b></Form.Label>
-              <Form.Control required value={direccion} onChange={e => setDireccion(e.target.value)} className='border' type="text" name='direccion' />
-            </Form.Group>
+                    <Form.Group as={Col} md={4} className="mb-3" controlId="Direccion">
+                      <Form.Label><b>Dirección:</b></Form.Label>
+                      <Form.Control required value={direccion} onChange={e => setDireccion(e.target.value)} className='border' type="text" name='direccion' />
+                    </Form.Group>
 
-            <Form.Group as={Col} md={4} className="mb-3" controlId="FechaNacimiento">
-              <Form.Label><b>Fecha de Nacimiento:</b></Form.Label>
-              <Form.Control required value={fecha_nacimiento} onChange={e => setFecha_nacimiento(e.target.value)} className='border' type="date" name='fecha_nacimiento' />
-            </Form.Group>
-          </Row>
+                    <Form.Group as={Col} md={4} className="mb-3" controlId="FechaNacimiento">
+                      <Form.Label><b>Fecha de Nacimiento:</b></Form.Label>
+                      <Form.Control required value={fecha_nacimiento} onChange={e => setFecha_nacimiento(e.target.value)} className='border' type="date" name='fecha_nacimiento' />
+                    </Form.Group>
+                  </Row>
 
-          <Row>
-            <Form.Group as={Col} md={6} className="mb-3" controlId="password">
-              <Form.Label><b>Contraseña:</b></Form.Label>
-              <Form.Control value={password} onChange={e => setPassword(e.target.value)} className='border' type="password" pattern='.{8,}' name='password' placeholder="Nueva Contraseña (opcional)" />
-            </Form.Group>
+                  <Row>
+                    <Form.Group as={Col} md={6} className="mb-3" controlId="password">
+                      <Form.Label><b>Contraseña:</b></Form.Label>
+                      <Form.Control value={password} onChange={e => setPassword(e.target.value)} className='border' type="password" pattern='.{8,}' name='password' placeholder="Nueva Contraseña (opcional)" />
+                    </Form.Group>
 
-            <Form.Group as={Col} md={6} className="mb-3" controlId="password2">
-              <Form.Label><b>Repetir Contraseña:</b></Form.Label>
-              <Form.Control value={password2} onChange={e => setPassword2(e.target.value)} className='border' type="password" pattern='.{8,}' name='password2' placeholder="Repetir Nueva Contraseña" />
-            </Form.Group>
-          </Row>
+                    <Form.Group as={Col} md={6} className="mb-3" controlId="password2">
+                      <Form.Label><b>Repetir Contraseña:</b></Form.Label>
+                      <Form.Control value={password2} onChange={e => setPassword2(e.target.value)} className='border' type="password" pattern='.{8,}' name='password2' placeholder="Repetir Nueva Contraseña" />
+                    </Form.Group>
+                  </Row>
 
-          <div className='mt-3 flex justify-center'>
-            <Button variant="primary" type="submit">
-              Modificar valores
-            </Button>
-          </div>
-        </Form>
-      </Container>
-    </Container>
+                  <div className='mt-3 flex justify-center'>
+                    <Button variant="primary" type="submit">
+                      Modificar valores
+                    </Button>
+                  </div>
+                </Form>
+          </Container>
+        </Container>
+      </div>
+    </div>
   );
 }
 
