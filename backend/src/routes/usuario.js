@@ -19,7 +19,7 @@ router.get('/usuarios', getUsuarios);
 router.get('/usuarios/:id', getUsuarioById);
 
 router.get('/perfil', checkAuth, perfil);
-router.put('/usuarios/:id', checkAuth ,updateUsuario );
-router.delete('/usuarios/:id', checkAuth ,deleteUsuario);
+router.put('/usuarios/:id', updateUsuario );
+router.delete('/usuarios/:id', deleteUsuario);
 
 module.exports = router;

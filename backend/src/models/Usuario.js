@@ -24,7 +24,7 @@ const usuarioSchema = new mongoose.Schema({
         required: false,
         trim: true,
         minLength: 1,
-        maxLength: 30
+        maxLength: 8
     },
     email: {
         type: String,

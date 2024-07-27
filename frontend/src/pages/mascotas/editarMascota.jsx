@@ -15,20 +15,20 @@ const EditarMascota = () => {
     const [mascota, setMascota] = useState([]);
 
 
-    useEffect( () => {
-        const GetInf = async () => {
-            try {
-                const response = axios.get(`http://localhost:3000/api/mascotas/${id}`);
-                console.log('API Response:', response.data);
-                setMascota(Array.isArray(response.data) ? response.data : []);
-                console.log(mascota);
-            } catch (err) {
-                console.error('API Error:', err);
-            }
-        }
+    // useEffect( () => {
+    //     const GetInf = async () => {
+    //         try {
+    //             const response = axios.get(`http://localhost:3000/api/mascotas/${id}`);
+    //             console.log('API Response:', response.data);
+    //             setMascota(Array.isArray(response.data) ? response.data : []);
+    //             console.log(mascota);
+    //         } catch (err) {
+    //             console.error('API Error:', err);
+    //         }
+    //     }
 
-        GetInf();
-    }, [], id);
+    //     GetInf();
+    // }, [], id);
     
     
 

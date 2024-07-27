@@ -27,8 +27,8 @@ function RegisterForm() {
           return;
         }
 
-        if(password.length < 8) {
-          console.log('minimo 8 caracteres');
+        if(password.length < 9) {
+          console.log('minimo 9 caracteres');
           return;
         }
 
@@ -89,7 +89,7 @@ function RegisterForm() {
                     <Form.Group as={Col} md={4} className="mb-3" controlId="Telefono">
                       <Form.Label><b>Telefono:</b></Form.Label>
                       <InputGroup>
-                        <InputGroup.Text id="inputGroupPrepend">+569</InputGroup.Text>
+                        <InputGroup.Text id="inputGroupPrepend">+56</InputGroup.Text>
                         <Form.Control required value={telefono} onChange={e => setTelefono(e.target.value)} className='border' type="text" name='telefono' placeholder='87654321' />
                       </InputGroup>
 

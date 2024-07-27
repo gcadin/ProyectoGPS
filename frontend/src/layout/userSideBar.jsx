@@ -98,7 +98,7 @@ const UserSideBar = () => {
                       <PlusCircle />
                     </SidebarMenu.Nav.Icon>
                     <SidebarMenu.Nav.Title className='ml-2'>
-                      <span>Registrar</span>
+                      <span>Publicar</span>
                     </SidebarMenu.Nav.Title>
                   </SidebarMenu.Nav.Link>
                 </SidebarMenu.Nav>
@@ -108,7 +108,7 @@ const UserSideBar = () => {
                       <List />
                     </SidebarMenu.Nav.Icon>
                     <SidebarMenu.Nav.Title className='ml-2'>
-                      <span>Listar</span>
+                      <span>Gestionar</span>
                     </SidebarMenu.Nav.Title>
                   </SidebarMenu.Nav.Link>
                 </SidebarMenu.Nav>
@@ -134,7 +134,7 @@ const UserSideBar = () => {
                       <FileText />
                     </SidebarMenu.Nav.Icon>
                     <SidebarMenu.Nav.Title className='ml-2'>
-                      <span>Registrar</span>
+                      <span>Denunciar</span>
                     </SidebarMenu.Nav.Title>
                   </SidebarMenu.Nav.Link>
                 </SidebarMenu.Nav>
@@ -144,7 +144,7 @@ const UserSideBar = () => {
                       <List />
                     </SidebarMenu.Nav.Icon>
                     <SidebarMenu.Nav.Title className='ml-2'>
-                      <span>Listar</span>
+                      <span>Administrar</span>
                     </SidebarMenu.Nav.Title>
                   </SidebarMenu.Nav.Link>
                 </SidebarMenu.Nav>
