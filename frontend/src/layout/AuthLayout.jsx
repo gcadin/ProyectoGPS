@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom'
 import Header from './Header';
 
 
-const AuthLayout = () => {
+const AuthLayout = ( navigate ) => {
     return (
         <>
-            <Header/>
+            <Header navigate={navigate}/>
 
 
             <Outlet/>

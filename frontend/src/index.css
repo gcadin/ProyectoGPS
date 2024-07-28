@@ -35,7 +35,7 @@
 
 .button-style {
     position: relative;
-    top: 20px;
+    top: 43px;
     left: 20px;
 }
 .container {
@@ -58,3 +58,42 @@
   
   
   
+
+.nav-link,
+.nav-link:focus, 
+.nav-link:hover {
+    color: white !important;
+}
+
+.dropdown-menu{
+    color: white !important;
+    background-color: rgb(19 193 204 / var(--tw-bg-opacity)) !important;
+}
+
+.dropdown-item:hover{
+    background-color: gray !important;
+}
+
+.flex{
+    display: flex !important;
+    color:aquamarine;
+}
+
+.ButtonRight{
+  
+    position: relative;
+
+    right: 20px;
+    align-self: right;
+
+}
+body {
+  padding-top: 70px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.navbar2 {
+  background-color: #004d40; /* Color de fondo personalizado */
+}
+.navbar3 {
+  background-color: #004d40; /* Color de fondo personalizado */
+}

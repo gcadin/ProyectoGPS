@@ -11,7 +11,7 @@ const DenunciarButton = () => {
 
   return (
     <Button variant="danger" onClick={handleClick}>
-      Denunciar
+      Publicar Denuncia
     </Button>
   );
 };
