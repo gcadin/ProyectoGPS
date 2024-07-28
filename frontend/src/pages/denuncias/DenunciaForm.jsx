@@ -2,8 +2,18 @@ import React, { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import axios from 'axios';
 import {popSuccess, popError} from '../../utils/popUp';
+import { useNavigate } from 'react-router-dom';
+
 
 const DenunciaForm = () => {
+
+  
+    const navigate = useNavigate();
+    const handleClick = () => {
+      navigate('/denuncias');
+    };
+
+
   const [image, setImage] = useState(null);
 
   const handleSubmit = async (event) => {
@@ -23,6 +33,8 @@ const DenunciaForm = () => {
       });
       console.log('prueba:', response.data.image);
       popSuccess('Denuncia Publicada Correctamente')
+
+      
     } catch (error) {
       console.error('Error al enviar datos:', error);
       popError('Lo sentimos:(. No hemos podido publicar tu denuncia. Por favor intentelo mas tarde')
@@ -40,6 +52,9 @@ const DenunciaForm = () => {
         <div className='mt-3 flex justify-center'>
           <Button variant="primary" type="submit">
             Registrar Denuncia
+          </Button>
+          <Button className='buttonRight' onClick={handleClick} >
+            Volver a denuncias
           </Button>
         </div>
       </Form>

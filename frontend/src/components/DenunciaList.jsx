@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../utils/formatDate';
-
+import DeleteButton from './DeleteButton';
+import '../index.css';
 const DenunciaList = () => {
   const [denuncias, setDenuncias] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -47,6 +48,9 @@ const DenunciaList = () => {
                 <Link to={`/denuncias/${denuncia._id}`}>
                   <button type="button" className="btn btn-primary">Ver Más</button>
                 </Link>
+
+                <DeleteButton className='ButtonRight' id={denuncia._id}/>
+
               </div>
             </div>
           </div>

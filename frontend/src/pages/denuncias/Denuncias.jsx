@@ -8,7 +8,8 @@ const Denuncias = () => {
     <div className="container">
     <div className="button-style">
       <DenunciarButton />
-    </div>
+    </div >
+
     <DenunciaList />
   </div>
   );

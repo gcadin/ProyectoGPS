@@ -14,6 +14,7 @@ app.use(cors());
 
 //middlewares
 require('./config');
+app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'src', 'uploads')));
 
 //agrgar api
@@ -31,3 +32,4 @@ app.get("/",(req,res) => {
     res.sendFile(path.join(__dirname + "/index.html"));
 });
 
+//ahi si se logro
