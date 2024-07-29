@@ -31,7 +31,8 @@ const autenticarUsuario = async (req, res) => {
 
     const hashedPassword = usuario.password;
     const isMatch = await comparePassword(password, hashedPassword);
-    if(isMatch){
+
+    if(isMatch) {
         res.json({token: generarJWT(usuario.nombre, usuario._id, usuario.email)});
     }
 
@@ -85,7 +86,10 @@ const getUsuarioById = async (req, res) => {
 };
 const updateUsuario = async (req, res) => {
     try {
+        const hashedPassword = await hashPassword(req.body.password);
+        req.body.password = hashedPassword
         const usuarioActualizado = await Usuario.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        
         if (!usuarioActualizado) return res.status(404).json({ message: 'Usuario no encontrado' });
         res.status(200).json(usuarioActualizado);
     } catch (error) {

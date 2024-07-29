@@ -48,7 +48,9 @@ const RegistrarMascota = () => {
     formData.append('edad', edad);
     formData.append('tamano', tamano);
     formData.append('raza', raza);
-    formData.append('vacunas', vacunas);
+    vacunas.forEach((vacuna) => {
+      formData.append('vacunas', vacuna);
+    });
     formData.append('vacunas2', vacunas2);
     formData.append('esterilizacion', esterilizacion);
     formData.append('imagen', imagen);
@@ -62,6 +64,7 @@ const RegistrarMascota = () => {
         },
       })
       console.log('Success');
+      window.location.reload();
     }catch(err){
       console.log(err);
     }

@@ -20,6 +20,7 @@ const EditarMascota = () => {
                 const response = await axios.get(`http://localhost:3000/api/mascotas/${id}`);
                 console.log('API Response:', response.data);
                 setMascota(response.data);
+                console.log(mascota)
             } catch (err) {
                 console.error('API Error:', err);
             }
@@ -27,8 +28,6 @@ const EditarMascota = () => {
 
         GetInf();
     }, []);
-    
-    
 
     const handleSubmit = () => {
 
@@ -63,9 +62,9 @@ const EditarMascota = () => {
                   <Form.Group as={Col} className="mb-3" controlId="formBasicEspecie">
                     <Form.Label>Especie:</Form.Label>
                       <div className='flex justify-evenly'>
-                        <Form.Check checked={mascota.especie === 'perro'} className='pr-3' type='radio' value='perro'  id='perro' name='Especie' label='Perro'  />
-                        <Form.Check checked={mascota.especie === 'gato'} className='pr-3' type='radio' value='gato'  id='gato' name='Especie' label='Gato' />
-                        <Form.Check checked={mascota.especie === 'otro'} className='pr-3' type='radio' value='otro'  id='otro' name='Especie' label='Otro' />
+                        <Form.Check checked={mascota.especie === 'perro'} onChange={e => setMascota[e.target.value]} className='pr-3' type='radio' value='perro'  id='perro' name='Especie' label='Perro'  />
+                        <Form.Check checked={mascota.especie === 'gato'}  onChange={e => setMascota[e.target.value]} className='pr-3' type='radio' value='gato'  id='gato' name='Especie' label='Gato' />
+                        <Form.Check checked={mascota.especie === 'otro'}  onChange={e => setMascota[e.target.value]} className='pr-3' type='radio' value='otro'  id='otro' name='Especie' label='Otro' />
                       </div>
                   </Form.Group>
 
@@ -89,11 +88,11 @@ const EditarMascota = () => {
                   <Row>
                     <Form.Group as={Col} className="mb-3" controlId="Vacunas">
                       <Form.Label>Vacunas Antirrabicas:</Form.Label>
-                        <Form.Check className='pr-3' value='2 Meses'  type='checkbox' id='1' label='2 Meses'  />
-                        <Form.Check className='pr-3' value='3 Meses'  type='checkbox' id='2' label='3 Meses' />
-                        <Form.Check className='pr-3' value='4 Meses'  type='checkbox' id='3' label='4 Meses (solo perros)' />
-                        <Form.Check className='pr-3' value='6 Meses'  type='checkbox' id='4' label='6 Meses' />
-                        <Form.Check className='pr-3' value='12 Meses'  type='checkbox' id='5' label='12 Meses' />
+                        <Form.Check checked={mascota.vacunas[0] === '2 Meses'} className='pr-3' value='2 Meses'  type='checkbox' id='1' label='2 Meses'  />
+                        <Form.Check checked={mascota.vacunas[1] === '3 Meses'} className='pr-3' value='3 Meses'  type='checkbox' id='2' label='3 Meses' />
+                        <Form.Check checked={mascota.vacunas[2] === '4 Meses'} className='pr-3' value='4 Meses'  type='checkbox' id='3' label='4 Meses (solo perros)' />
+                        <Form.Check checked={mascota.vacunas[3] === '6 Meses'} className='pr-3' value='6 Meses'  type='checkbox' id='4' label='6 Meses' />
+                        <Form.Check checked={mascota.vacunas[4] === '12 Meses'} className='pr-3' value='12 Meses'  type='checkbox' id='5' label='12 Meses' />
                     </Form.Group>
 
                     <Form.Group as={Col} className="mb-3" controlId="Vacunas2">
