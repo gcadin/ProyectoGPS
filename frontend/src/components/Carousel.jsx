@@ -9,19 +9,19 @@ function CustomCarousel() {
             <Carousel.Item >
               <Image src='/banner1.jpeg'></Image>
               <Carousel.Caption>
-                <h3>First slide label</h3>
+                <h3>Adopta un perrito</h3>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item >
                 <Image src='/banner2.jpg' width={1900} height={900}></Image>
               <Carousel.Caption>
-                <h3>Second slide label</h3>
+                <h3>Te estamos esperando</h3>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item >
               <Image src='/banner3.jpeg'></Image>
               <Carousel.Caption>
-                <h3>Third slide label</h3>
+                <h3>Haz tu donativo, cada peso importa</h3>
               </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

@@ -63,7 +63,7 @@ const Avatar = (props) => {
                         onFocus={() => setIsFocused(true)} 
                         id="dropdown-basic">
                         {auth.imagen 
-                            ? <Image width={44} className='rounded-circle' src={`http://localhost:3000/uploads/${auth.imagen}`} /> 
+                            ? <Image width={44} className='rounded-circle' src={`http://146.83.198.35:1273/uploads/${auth.imagen}`} /> 
                             : <PersonCircle size={38} />}
                     </Dropdown.Toggle>
 

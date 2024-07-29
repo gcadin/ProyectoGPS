@@ -20,7 +20,7 @@ const MascotasList = () => {
   useEffect(() => {
     const fetchMascotas = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/mascotas');
+        const response = await axios.get('http://146.83.198.35:1273/api/mascotas');
         console.log('API Response:', response.data);
         setMascotas(Array.isArray(response.data) ? response.data : []);
         setLoading(false);
@@ -50,7 +50,7 @@ const MascotasList = () => {
         {mascotas.map(mascota => (
           <div className="col-md-4" key={mascota._id}>
             <div className="card mb-4">
-              <img src={`http://localhost:3000/uploads/${mascota.imagen}`} className="card-img-top" alt="Imagen de la mascota" />
+              <img src={`http://146.83.198.35:1273/uploads/${mascota.imagen}`} className="card-img-top" alt="Imagen de la mascota" />
               <div className="card-body">
                 <p className="m-0 card-text"><b>Nombre:</b> {mascota.nombre}</p>
                 <p className="m-0 card-text"><b>Edad:</b> {mascota.edad} años</p>

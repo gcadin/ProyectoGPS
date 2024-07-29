@@ -7,7 +7,7 @@ import { popSuccess, popError } from '../utils/popUp.js'; // Ajusta esta importa
 const DeleteButton = ({ id }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/denuncias/${id}`);
+      await axios.delete(`http://146.83.198.35:1273/api/denuncias/${id}`);
       popSuccess('Denuncia eliminada correctamente');
 
       setTimeout(function(){

@@ -12,7 +12,7 @@ const DenunciaList = () => {
   useEffect(() => {
     const fetchDenuncias = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/denuncias');
+        const response = await axios.get('http://146.83.198.35:1273/api/denuncias/');
         console.log('API Response:', response.data);
         setDenuncias(Array.isArray(response.data) ? response.data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha)): []);
         setLoading(false);
@@ -40,7 +40,7 @@ const DenunciaList = () => {
         {denuncias.map(denuncia => (
           <div className="col-md-4" key={denuncia._id}>
             <div className="card mb-4">
-              <img src={`http://localhost:3000/uploads/${denuncia.imagen}`} className="card-img-top" alt="Imagen de la denuncia" />
+              <img src={`http://146.83.198.35:1273/uploads/${denuncia.imagen}`} className="card-img-top" alt="Imagen de la denuncia" />
               <div className="card-body">
                 <h5 className="card-title">{denuncia.titulo}</h5>
                 <p className="card-text">Publicado a las: {formatDate(denuncia.fecha)}</p>

@@ -11,7 +11,7 @@ const DenunciaDetails = () => {
   useEffect(() => {
     const fetchDenuncia = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/denuncias/${id}`);
+        const response = await axios.get(`http://146.83.198.35:1273/api/denuncias/${id}`);
         setDenuncia(response.data);
         setLoading(false);
       } catch (err) {
@@ -36,7 +36,7 @@ const DenunciaDetails = () => {
       <h1 className="denuncia-title">{denuncia.titulo}</h1>
       <p className="denuncia-date">Publicado el: {new Date(denuncia.fecha).toLocaleDateString()}</p>
       <img 
-        src={`http://localhost:3000/uploads/${denuncia.imagen}`} 
+        src={`http://146.83.198.35:1273/uploads/${denuncia.imagen}`} 
         className="img-pag" 
         alt="Imagen de la denuncia" 
       />

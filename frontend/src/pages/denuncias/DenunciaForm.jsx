@@ -1,44 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import axios from 'axios';
-import {popSuccess, popError} from '../../utils/popUp';
+import { popSuccess, popError } from '../../utils/popUp';
 import { useNavigate } from 'react-router-dom';
-
+import useAuth from '../../hooks/useAuth';
 
 const DenunciaForm = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/denuncias');
+  };
 
-  
-    const navigate = useNavigate();
-    const handleClick = () => {
-      navigate('/denuncias');
-    };
-
-
+  const { auth, cargando } = useAuth(); 
   const [image, setImage] = useState(null);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    if (!cargando && !auth._id) {
+      navigate('/login'); 
+    }
+  }, [cargando, auth, navigate]);
+
+  const validateForm = (formData) => {
+    const newErrors = {};
+
+    if (!formData.get('titulo')) {
+      newErrors.titulo = 'El título es obligatorio';
+    }
+
+    if (!formData.get('descripcion')) {
+      newErrors.descripcion = 'La descripción es obligatoria';
+    }
+
+    return newErrors;
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
-
     const formData = new FormData(form);
+
     if (image) {
       formData.append('imagen', image);
     }
 
+    const newErrors = validateForm(formData);
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:3000/api/denuncias', formData, {
+      const token = localStorage.getItem('token');
+      const config = {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'Authorization': token
         },
-      });
-      console.log('prueba:', response.data.image);
-      popSuccess('Denuncia Publicada Correctamente')
+      };
 
-      
+      const response = await axios.post('http://146.83.198.35:1273/api/denuncias', formData, config);
+      console.log('prueba:', response.data.image);
+      popSuccess('Denuncia Publicada Correctamente');
+      form.reset();
+      setImage(null);
+      setErrors({});
     } catch (error) {
       console.error('Error al enviar datos:', error);
-      popError('Lo sentimos:(. No hemos podido publicar tu denuncia. Por favor intentelo mas tarde')
-    
+      popError('Lo sentimos:(. No hemos podido publicar tu denuncia. Por favor intentelo mas tarde');
     }
   };
 
@@ -47,8 +77,7 @@ const DenunciaForm = () => {
       <Form className='w-100 border rounded m-3 p-4' onSubmit={handleSubmit}>
         <label className='text-2xl'>Formulario de Registro de Denuncia</label>
         <hr />
-        <InfoDenuncia setImage={setImage} />
-
+        <InfoDenuncia setImage={setImage} errors={errors} />
         <div className='mt-3 flex justify-center'>
           <Button variant="primary" type="submit">
             Registrar Denuncia
@@ -62,7 +91,7 @@ const DenunciaForm = () => {
   );
 };
 
-const InfoDenuncia = ({ setImage }) => {
+const InfoDenuncia = ({ setImage, errors }) => {
   const handleFileChange = (event) => {
     setImage(event.target.files[0]);
   };
@@ -72,11 +101,13 @@ const InfoDenuncia = ({ setImage }) => {
       <Form.Group className="mb-3" controlId="formBasicTitulo">
         <Form.Label>Título de la denuncia:</Form.Label>
         <Form.Control className='border' type="text" placeholder='Título de la denuncia' name="titulo" />
+        {errors.titulo && <Form.Text className="text-danger">{errors.titulo}</Form.Text>}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicDescripcion">
         <Form.Label>Descripción:</Form.Label>
         <Form.Control className='border' as="textarea" rows={3} placeholder='Descripción de la denuncia' name="descripcion" />
+        {errors.descripcion && <Form.Text className="text-danger">{errors.descripcion}</Form.Text>}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicImagen">
@@ -86,6 +117,5 @@ const InfoDenuncia = ({ setImage }) => {
     </>
   );
 };
-
 
 export default DenunciaForm;
