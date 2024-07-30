@@ -9,6 +9,7 @@ import styles from './Login.module.css';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Navigate } from 'react-router-dom';
+import { popSuccess, popError } from '../../utils/popUp';
 
 
 const Login = () => {
@@ -37,7 +38,6 @@ const LoginForm = () => {
       const { data } = await axios.post(url, {email, password})
       localStorage.setItem('token', data.token);
       console.log('success')
-
       window.location.reload();
     }catch(err){
       console.log(err);

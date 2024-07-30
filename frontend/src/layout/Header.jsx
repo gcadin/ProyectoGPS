@@ -48,7 +48,6 @@ const Avatar = (props) => {
         return value && typeof value === 'object' && Object.keys(value).length === 0;
       };
 
-    console.log(auth)
     if (props.page == '/Login') {
         return null;
     }else {
