@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
 
 const denunciaSchema = mongoose.Schema({
-id_denuncia:{
-    type: String,
-    required: true,
-    trim: true,
-    minLenght: 1,
-    maxLenght: 100
-},
+
 fecha:{
     type: Date,
-    required: true
+    default: Date.now
 },
 titulo:{
     type: String,
@@ -26,12 +20,28 @@ descripcion:{
     minLenght: 1,
     maxLenght: 500
 },
+
+
+tipo: [{
+    type: String,
+    enum: ['Perdida de Mascotas', 
+        'Negligencias', 
+        'Animales Peligrosos',
+        'Maltrato Animal',
+        'Otros',
+        'Abandono',
+        'Sobreexplotación Animal'
+    
+
+    ],
+    default: []
+}],
+
 imagen:[{
     type: String,
     required: false,
     trim: true,
     minLenght: 1,
-    maxLenght: 100
 }]
 })
 

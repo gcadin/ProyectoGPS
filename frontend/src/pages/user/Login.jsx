@@ -18,7 +18,14 @@ const Login = () => {
   return(
     <>
       {auth?._id ? <Navigate to='/' /> : <LoginForm />}
+  const {auth} = useAuth();
 
+  return(
+    <>
+      {auth?._id ? <Navigate to='/' /> : <LoginForm />}
+
+    </>
+  )
     </>
   )
 }

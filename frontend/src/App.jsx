@@ -1,11 +1,16 @@
-import{ BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import AuthLayout from './layout/AuthLayout'
-import Login from './pages/user/Login'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AuthLayout from './layout/AuthLayout';
+import Login from './pages/user/Login';
 import RegisterForm from './pages/user/Registrar'
-import Contacto from './pages/Contacto'
-import Nosotros from './pages/Nosotros'
-import CustomCarousel from './components/Carousel'
+import Contacto from './pages/Contacto';
+import Nosotros from './pages/Nosotros';
+import Denuncias from './pages/denuncias/Denuncias';
+import CustomCarousel from './components/Carousel';
+import DenunciaDetails from './pages/denuncias/DenunciaDetails';
+import DenunciaForm from './pages/denuncias/DenunciaForm';
+
+
 import RegistrarMascota from './pages/mascotas/registrarMascota'
 
 import EditarMascota from './pages/mascotas/editarMascota'
@@ -17,9 +22,7 @@ import MascotasListUser from './pages/mascotas/listarMascotasUsuario'
 import EditarPerfil from './pages/user/EditarPerfil'
 
 function App() {
-
   return (
-    <>
       <BrowserRouter>
         <AuthProvider>
           <Routes>
@@ -29,6 +32,9 @@ function App() {
               <Route path='/registro' element={<RegisterForm/>}/>
               <Route path='/nosotros' element={<Nosotros/>}/>
               <Route path='/contacto' element={<Contacto/>}/>
+              <Route path='/denuncias' element={<Denuncias />} />
+            <Route path="/denuncias/:id" element={<DenunciaDetails />} />
+            <Route path="/denunciasform" element={<DenunciaForm/>} />
             </Route>
 
             <Route path='/usuario' element={<UserNav/>}>
@@ -42,9 +48,9 @@ function App() {
           </Routes>
         </AuthProvider>
       </BrowserRouter>
-    </>
+  
   )
 }
 
 
-export default App
+export default App;

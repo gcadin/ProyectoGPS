@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.form-control{
-    border: none !important;
-}
 
-.form-control:focus{
-    box-shadow: none !important;
-}
+
+
 
 .justify-center{
     justify-content: center !important;
@@ -22,6 +18,43 @@
     max-width: 100% !important;
 }
 
+.card-title, .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text {
+  display: -webkit-box;
+  line-clamp: 3; 
+  -webkit-box-orient: vertical;
+}
+
+.button-style {
+    position: relative;
+    top: 46px;
+    left: 20px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+@media (min-width: 768px){
+
+}
+
+
+.img-pag {
+    width: 100%;
+    max-width: 500px;  
+  max-height: 200px; 
+  object-fit: cover; 
+  }
+  
+  
+  
+
 .nav-link,
 .nav-link:focus, 
 .nav-link:hover {
@@ -30,7 +63,7 @@
 
 .dropdown-menu{
     color: white !important;
-    background-color: rgb(19 193 204 / var(--tw-bg-opacity)) !important;
+    background-color: green !important;
 }
 
 .dropdown-item:hover{
@@ -39,4 +72,21 @@
 
 .flex{
     display: flex !important;
+    color:rgb(0, 0, 0);
 }
+
+.ButtonRight{
+  
+    position: relative;
+
+    Right: 40px;
+
+}
+body {
+  padding-top: 70px; 
+}
+
+.navbar2 {
+  background-color: #004d40; 
+}
+

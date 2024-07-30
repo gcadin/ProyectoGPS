@@ -1,8 +1,10 @@
+require("dotenv").config();
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const path = require("path");
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT ; 
 const usuarioRoutes = require("./src/routes/usuario");
 const denunciaRoutes = require("./src/routes/denuncia");
 const mascotaRoutes = require("./src/routes/mascota");
@@ -24,9 +26,10 @@ app.use('/api', mascotaRoutes);
 app.use('/api', consejoRoutes);
 
 
-app.listen(port,()=>{
-    console.log("server running on port",port);
-});
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running on port ${port}`);
+  });
+  
 
 app.get("/",(req,res) => {
     res.sendFile(path.join(__dirname + "/index.html"));
