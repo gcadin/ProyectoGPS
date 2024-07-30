@@ -21,35 +21,30 @@ const perfil = async (req, res) => {
 };
 
 const autenticarUsuario = async (req, res) => {
-    const{email, password} = req.body;
 
-    const usuario = await Usuario.findOne({email: email})
-    ;
+    const{email, password} = req.body;
+    const usuario = await Usuario.findOne({email: email});
     if (!usuario) {
         const error = new Error('El Usuario no existe')
         return res.status(404).json({mnsg: error.message})
     }
-
     const hashedPassword = usuario.password;
     const isMatch = await comparePassword(password, hashedPassword);
-    if(isMatch){
+    if(isMatch) {
         res.json({token: generarJWT(usuario.nombre, usuario._id, usuario.email)});
+    }else{
+        const error = new Error('credenciales invalidas');
+        return res.status(400).json({msg: error.message})
     }
+
 
 };
 
 const crearUsuario = async (req, res) => {
     try {
-        const usuarioExiste = await Usuario.findOne({email: email})
-
-        console.log('Datos:', Usuario.email);
-        console.log('Datos:', Usuario.password);
-
         const{nombre, apellidos, email, telefono, direccion, fecha_nacimiento, password} = req.body;
         
-        console.log('lalala');
-        console.log('Datos:', req.body);
-
+        const usuarioExiste = await Usuario.findOne({email: email})
         if (usuarioExiste){
             const error = new Error('usuario ya registrado');
             return res.status(400).json({msg: error.message})
@@ -76,7 +71,7 @@ const crearUsuario = async (req, res) => {
 };
 const getUsuarios = async (req, res) => {
     try {
-        const usuarios = await Usuario.find();
+        const usuarios = await Usuario.find({ rol: { $ne: 'admin' } });
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -93,7 +88,10 @@ const getUsuarioById = async (req, res) => {
 };
 const updateUsuario = async (req, res) => {
     try {
+        const hashedPassword = await hashPassword(req.body.password);
+        req.body.password = hashedPassword
         const usuarioActualizado = await Usuario.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        
         if (!usuarioActualizado) return res.status(404).json({ message: 'Usuario no encontrado' });
         res.status(200).json(usuarioActualizado);
     } catch (error) {
@@ -115,6 +113,9 @@ module.exports = {
     getUsuarios,
     getUsuarioById,
     updateUsuario,
+    deleteUsuario,
+    autenticarUsuario,
+    perfil
     deleteUsuario,
     autenticarUsuario,
     perfil

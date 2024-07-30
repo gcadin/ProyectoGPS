@@ -9,6 +9,7 @@ import styles from './Login.module.css';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Navigate } from 'react-router-dom';
+import { popError } from '../../utils/popUp';
 
 
 const Login = () => {
@@ -17,15 +18,19 @@ const Login = () => {
   return(
     <>
       {auth?._id ? <Navigate to='/' /> : <LoginForm />}
+  const {auth} = useAuth();
 
+  return(
+    <>
+      {auth?._id ? <Navigate to='/' /> : <LoginForm />}
+
+    </>
+  )
     </>
   )
 }
 
 const LoginForm = () => {
-
-  
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -33,17 +38,14 @@ const LoginForm = () => {
     e.preventDefault();
 
     try{
-      const url = 'http://146.83.198.35:1273/api/login';
+      const url = 'http://localhost:3000/api/login';
       const { data } = await axios.post(url, {email, password})
       localStorage.setItem('token', data.token);
-      console.log('success')
-
       window.location.reload();
     }catch(err){
       console.log(err);
+      popError('Credenciales incorrectas');
     }
-
-     
   }
 
   return (
