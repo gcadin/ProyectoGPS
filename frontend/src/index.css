@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.form-control{
-    border: none !important;
-}
 
-.form-control:focus{
-    box-shadow: none !important;
-}
+
+
 
 .justify-center{
     justify-content: center !important;
@@ -52,7 +48,7 @@
 .img-pag {
     width: 100%;
     max-width: 500px;  
-  max-height: 500px; 
+  max-height: 200px; 
   object-fit: cover; 
   }
   
@@ -67,7 +63,7 @@
 
 .dropdown-menu{
     color: white !important;
-    background-color: rgb(19 193 204 / var(--tw-bg-opacity)) !important;
+    background-color: green !important;
 }
 
 .dropdown-item:hover{
@@ -93,6 +89,4 @@ body {
 .navbar2 {
   background-color: #004d40; 
 }
-.navbar3 {
-  background-color: #004d40; 
-}
+

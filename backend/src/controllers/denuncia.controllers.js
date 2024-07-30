@@ -5,22 +5,23 @@ const Denuncia = require('../models/Denuncia');
 
 const crearDenuncia = async (req, res) => {
     try {
-        const { fecha, titulo, descripcion } = req.body;
+      const { fecha, titulo, descripcion, tipo } = req.body;
     
-        const newDenuncia = new Denuncia({
-            
-            fecha,
-            titulo,
-            descripcion,
-            imagen: req.file ? req.file.filename : 'default.jpg'
-        });
-
-        const denunciaGuardada = await newDenuncia.save();
-        res.status(201).json(denunciaGuardada);
+      const newDenuncia = new Denuncia({
+        fecha,
+        titulo,
+        descripcion,
+        tipo, 
+        imagen: req.file ? req.file.filename : 'default.jpg'
+      });
+  
+      const denunciaGuardada = await newDenuncia.save();
+      res.status(201).json(denunciaGuardada);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+      res.status(400).json({ message: error.message });
     }
-};
+  };
+  
 
 const getDenuncias = async (req, res) => {
 

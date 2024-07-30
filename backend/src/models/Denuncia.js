@@ -20,12 +20,28 @@ descripcion:{
     minLenght: 1,
     maxLenght: 500
 },
+
+
+tipo: [{
+    type: String,
+    enum: ['Perdida de Mascotas', 
+        'Negligencias', 
+        'Animales Peligrosos',
+        'Maltrato Animal',
+        'Otros',
+        'Abandono',
+        'Sobreexplotación Animal'
+    
+
+    ],
+    default: []
+}],
+
 imagen:[{
     type: String,
     required: false,
     trim: true,
     minLenght: 1,
-    maxLenght: 100
 }]
 })
 

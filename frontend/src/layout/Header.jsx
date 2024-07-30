@@ -3,8 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+
 import { PersonCircle, Search, ChevronRight } from 'react-bootstrap-icons';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -27,19 +26,7 @@ const CustomDropdown = () => {
     )
 }
 
-const CustomSearch = () => {
-    return (
-        <Form className="d-flex">
-            <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-        </Form>
-    )
-}
+
 
 const Avatar = (props) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -99,12 +86,11 @@ const Header = () => {
                         navbarScroll
                     >
                         <Nav.Link href="/">Inicio</Nav.Link>
-                        <CustomDropdown className="nabvar3"/>
+                        <CustomDropdown className="nabvar2"/>
                         <Nav.Link href="/denuncias">Denuncias</Nav.Link>
                         <Nav.Link href="/nosotros">Nosotros</Nav.Link>
                         <Nav.Link href="/contacto">Contacto</Nav.Link>
                     </Nav>
-                    <CustomSearch />
                     <Avatar page={location.pathname} />
                 </Navbar.Collapse>
             </Container>
