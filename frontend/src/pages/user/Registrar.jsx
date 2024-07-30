@@ -90,7 +90,7 @@ function RegisterForm() {
                       <Form.Label><b>Telefono:</b></Form.Label>
                       <InputGroup>
                         <InputGroup.Text id="inputGroupPrepend">+56</InputGroup.Text>
-                        <Form.Control required value={telefono} onChange={e => setTelefono(e.target.value)} className='border' type="text" name='telefono' placeholder='87654321' />
+                        <Form.Control required value={telefono} onChange={e => setTelefono(e.target.value)} className='border' type="text" name='telefono' placeholder='9 87654321' />
                       </InputGroup>
 
                     </Form.Group>

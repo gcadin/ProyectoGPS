@@ -21,20 +21,22 @@ const perfil = async (req, res) => {
 };
 
 const autenticarUsuario = async (req, res) => {
-    const{email, password} = req.body;
 
+    const{email, password} = req.body;
     const usuario = await Usuario.findOne({email: email});
     if (!usuario) {
         const error = new Error('El Usuario no existe')
         return res.status(404).json({mnsg: error.message})
     }
-
     const hashedPassword = usuario.password;
     const isMatch = await comparePassword(password, hashedPassword);
-
     if(isMatch) {
         res.json({token: generarJWT(usuario.nombre, usuario._id, usuario.email)});
+    }else{
+        const error = new Error('credenciales invalidas');
+        return res.status(400).json({msg: error.message})
     }
+
 
 };
 
