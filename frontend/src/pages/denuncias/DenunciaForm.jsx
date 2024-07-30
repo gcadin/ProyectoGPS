@@ -24,12 +24,31 @@ const DenunciaForm = () => {
   const validateForm = (formData) => {
     const newErrors = {};
 
-    if (!formData.get('titulo')) {
+    const titulo = formData.get('titulo');
+    const descripcion = formData.get('descripcion');
+    
+    if (!titulo) {
       newErrors.titulo = 'El título es obligatorio';
+    } else if (titulo.length < 5) {
+      newErrors.titulo = 'El título debe tener al menos 5 caracteres';
+    } else if (titulo.length > 100) {
+      newErrors.titulo = 'El título no debe exceder los 100 caracteres';
     }
 
-    if (!formData.get('descripcion')) {
+    if (!descripcion) {
       newErrors.descripcion = 'La descripción es obligatoria';
+    } else if (descripcion.length < 5) {
+      newErrors.descripcion = 'La descripción debe tener al menos 5 caracteres';
+    } else if (descripcion.length > 1000) {
+      newErrors.descripcion = 'La descripción no debe exceder los 600 caracteres';
+    }
+
+    if (image) {
+      const fileType = image.type;
+      const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+      if (!validImageTypes.includes(fileType)) {
+        newErrors.imagen = 'El formato de imagen no es válido';
+      }
     }
 
     return newErrors;
@@ -113,6 +132,7 @@ const InfoDenuncia = ({ setImage, errors }) => {
       <Form.Group className="mb-3" controlId="formBasicImagen">
         <Form.Label>Imagen (opcional):</Form.Label>
         <Form.Control className='border' type="file" accept="image/*" onChange={handleFileChange} />
+        {errors.imagen && <Form.Text className="text-danger">{errors.imagen}</Form.Text>}
       </Form.Group>
     </>
   );

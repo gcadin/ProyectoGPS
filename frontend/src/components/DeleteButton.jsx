@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
-import { popSuccess, popError } from '../utils/popUp.js'; // Ajusta esta importación según tu estructura de proyecto
+import { popSuccess, popError } from '../utils/popUp.js'; 
 
 
 const DeleteButton = ({ id }) => {

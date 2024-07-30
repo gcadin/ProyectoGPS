@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../utils/formatDate';
 import DeleteButton from './DeleteButton';
 import '../index.css';
+import useAuth from '../hooks/useAuth'; 
+
 const DenunciaList = () => {
+  const { auth } = useAuth(); 
   const [denuncias, setDenuncias] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +17,7 @@ const DenunciaList = () => {
       try {
         const response = await axios.get('http://146.83.198.35:1273/api/denuncias/');
         console.log('API Response:', response.data);
-        setDenuncias(Array.isArray(response.data) ? response.data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha)): []);
+        setDenuncias(Array.isArray(response.data) ? response.data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha)) : []);
         setLoading(false);
       } catch (err) {
         console.error('API Error:', err);
@@ -46,11 +49,13 @@ const DenunciaList = () => {
                 <p className="card-text">Publicado a las: {formatDate(denuncia.fecha)}</p>
                 <p className="card-text">{denuncia.descripcion}</p>
                 <Link to={`/denuncias/${denuncia._id}`}>
-                  <button type="button" className="btn btn-primary">Ver Más</button>
+                  <button type="button"  className="btn btn-primary">Ver Más</button>
                 </Link>
-
-                <DeleteButton className='ButtonRight' id={denuncia._id}/>
-
+                
+                {auth && auth.role === 'admin' && ( 
+                  <DeleteButton className='ButtonRight' id={denuncia._id} />
+                )}
+               
               </div>
             </div>
           </div>

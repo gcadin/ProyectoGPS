@@ -83,17 +83,16 @@
   
     position: relative;
 
-    right: 20px;
-    align-self: right;
+    Right: 40px;
 
 }
 body {
-  padding-top: 70px; /* Ajusta este valor según la altura de tu navbar */
+  padding-top: 70px; 
 }
 
 .navbar2 {
-  background-color: #004d40; /* Color de fondo personalizado */
+  background-color: #004d40; 
 }
 .navbar3 {
-  background-color: #004d40; /* Color de fondo personalizado */
+  background-color: #004d40; 
 }

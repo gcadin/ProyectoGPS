@@ -43,9 +43,9 @@ const UserHeader = ( ) => {
                 </Container>
                 <Container className='justify-center bg-greenaqua mx-0 max-w-full'>
                 <div style={{
-                  borderTop: '1px solid #13C1CC', // Color y grosor de la línea
-                  width: '100%', // Ancho de la línea, puedes ajustarlo como desees
-                  margin: '15px 0px', // Espaciado superior e inferior
+                  borderTop: '1px solid #13C1CC', 
+                  width: '100%', 
+                  margin: '15px 0px',
                   padding: '0px'                }} />
                 </Container>
             </Navbar>
