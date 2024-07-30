@@ -33,9 +33,8 @@ const Avatar = () => {
 const UserHeader = ( ) => {
     let location = useLocation();
     return(
-        <>
             <Navbar bg='white' className='mt-3 pb-0 flex-col'>
-                <Container className='flex'>
+                <Container className='flex flex-row'>
                     <Navbar.Brand href="/" >
                         <Image src='/logo3.jpg' width={80} height={80}  rounded/>{''}
                     </Navbar.Brand>
@@ -49,8 +48,7 @@ const UserHeader = ( ) => {
                   padding: '0px'                }} />
                 </Container>
             </Navbar>
-            
-        </>
+        
     )
 }
 
