@@ -5,8 +5,137 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import UserSideBar from "../../layout/userSideBar";
 import { Button} from "react-bootstrap";
-import { PencilSquare, TrashFill } from 'react-bootstrap-icons';
+import { PencilSquare, TrashFill, Search } from 'react-bootstrap-icons';
 import axios from 'axios';
+import UserTable from "../../components/UserTable";
+import { useState, useEffect } from 'react';
+import InputGroup from 'react-bootstrap/InputGroup';
+import MascotasTable from "../../components/MascotasTable";
+
+
+const PanelAdmin = () => {
+    return(
+        <>
+            <TablaUsuarios />
+            <TablaMascotas />
+        </>
+    )
+    
+}
+
+const TablaUsuarios = () =>{
+    const [usuarios, setUsuarios] = useState([]);
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+          try {
+            const response = await axios.get('http://localhost:3000/api/usuarios');
+            console.log('API Response:', response.data);
+            setUsuarios(response.data);
+          } catch (err) {
+            console.error('API Error:', err);
+          }
+        };
+    
+        fetchUsers();
+      }, []);
+
+    const [search, setSearch] = useState('');
+
+    const handleSearch = (event) => {
+        setSearch(event.target.value);
+    };
+    
+    const filteredUsers = usuarios
+    .filter(user =>
+        user.nombre.toLowerCase().includes(search.toLowerCase())
+    );
+
+    const handleDelete = async (userId) => {
+        try {
+          await axios.delete(`http://localhost:3000/api/usuarios/${userId}`);
+          window.location.reload();
+        } catch (err) {
+          console.error('API Error:', err);
+        }
+    };
+    return (
+        <>
+            <Card className="border rounded p-2 m-2">
+                <Card className="border-0 flex flex-col justify-between">
+                    <h4>Usuarios registrados</h4>
+                    <hr />
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="inputGroupPrepend"><Search /></InputGroup.Text>
+                        <input type="text" placeholder="Buscar por nombre" value={search} onChange={handleSearch} className="form-control border"/>
+                    </InputGroup>
+                       
+                    
+
+            <UserTable users={filteredUsers} onDelete={handleDelete}/>
+                </Card>
+            </Card>
+            
+        </>
+       
+    )
+
+}
+
+const TablaMascotas = () =>{
+    const [mascotas, setMascotas] = useState([]);
+
+    useEffect(() => {
+        const fetchMascotas = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/api/mascotas');
+                console.log('API Response:', response.data);
+                setMascotas(response.data);
+            } catch (err) {
+                console.error('API Error:', err);
+            }
+        };
+
+        fetchMascotas();
+    }, []);
+
+    const [search, setSearch] = useState('');
+
+    const handleSearch = (event) => {
+        setSearch(event.target.value);
+    };
+
+    const filteredMascotas = mascotas
+        .filter(mascota =>
+            mascota.nombre.toLowerCase().includes(search.toLowerCase())
+        );
+
+    const handleDelete = async (mascotaId) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/mascotas/${mascotaId}`);
+            window.location.reload();
+        } catch (err) {
+            console.error('API Error:', err);
+        }
+    };
+
+    return (
+        <>
+            <Card className="border rounded p-2 m-2">
+                <Card className="border-0 flex flex-col justify-between">
+                    <h4>Listado de Mascotas</h4>
+                    <hr />
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="inputGroupPrepend"><Search /></InputGroup.Text>
+                        <input type="text" placeholder="Buscar por nombre" value={search} onChange={handleSearch} className="form-control border"/>
+                    </InputGroup>
+
+                    <MascotasTable mascotas={filteredMascotas} onDelete={handleDelete}/>
+                </Card>
+            </Card>
+        </>
+    );
+}
 
 const formatDate = (isoDate) => {
     const date = new Date(isoDate);
@@ -34,7 +163,15 @@ const Perfil = () => {
         }
       };
 
-    
+      const EliminarCuenta = () => {
+        return(
+            <Card className="border-0 items-center">
+                <Button href="/" onClick={handleDelete} variant="danger" className="flex items-center">
+                    <TrashFill className="mr-2" /> Eliminar cuenta
+                </Button>
+            </Card>
+        );
+      }
 
     return (
         <div style={{ display: 'flex', height: '100vh' }}>
@@ -65,12 +202,10 @@ const Perfil = () => {
                             </Card>
                         </Row>
                     </Card>
+
+                    {auth.rol == 'admin' ? <PanelAdmin/>: <EliminarCuenta/>}
                         
-                    <Card className="border-0 items-center">
-                        <Button href="/" onClick={handleDelete} variant="danger" className="flex items-center">
-                            <TrashFill className="mr-2" /> Eliminar cuenta
-                        </Button>
-                    </Card>
+                    
                 </Container>
             </div>
         </div>

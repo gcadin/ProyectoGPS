@@ -69,7 +69,7 @@ const crearUsuario = async (req, res) => {
 };
 const getUsuarios = async (req, res) => {
     try {
-        const usuarios = await Usuario.find();
+        const usuarios = await Usuario.find({ rol: { $ne: 'admin' } });
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(400).json({ message: error.message });
