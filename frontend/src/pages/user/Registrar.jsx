@@ -53,7 +53,6 @@ function RegisterForm() {
         }catch(err){
           console.log(err);
         }
-
     }
 
     const handleFileChange = (event) => {
@@ -62,8 +61,7 @@ function RegisterForm() {
 
     return (
         <>
-            <Container>
-                
+          
         <Container className='w-100 flex justify-center mt-3 p-2'>
             <Form className='w-100 border rounded m-3 p-4' onSubmit={handleSubmit}>
                 <label className='text-2xl'>Formulario Registro Usuarios</label>
@@ -131,7 +129,7 @@ function RegisterForm() {
                 </div>
             </Form>
         </Container>
-            </Container>
+        
         </>
         
        
