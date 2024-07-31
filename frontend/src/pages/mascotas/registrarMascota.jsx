@@ -116,7 +116,7 @@ const RegistrarMascota = () => {
     formData.append('usuario', auth._id);
 
     try {
-      const url = 'http://localhost:3000/api/mascotas';
+      const url = 'http://146.83.198.35:1273/api/mascotas';
       await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

@@ -82,7 +82,7 @@ function EditarPerfil() {
     };
 
     try {
-      const url = `http://localhost:3000/api/usuarios/${auth._id}`;
+      const url = `http://146.83.198.35:1273/api/usuarios/${auth._id}`;
       await axios.put(url, formData);
       console.log('Success');
       navigate('/perfil');

@@ -29,7 +29,7 @@ const TablaUsuarios = () =>{
     useEffect(() => {
         const fetchUsers = async () => {
           try {
-            const response = await axios.get('http://localhost:3000/api/usuarios');
+            const response = await axios.get('http://146.83.198.35:1273/api/usuarios');
             console.log('API Response:', response.data);
             setUsuarios(response.data);
           } catch (err) {
@@ -53,7 +53,7 @@ const TablaUsuarios = () =>{
 
     const handleDelete = async (userId) => {
         try {
-          await axios.delete(`http://localhost:3000/api/usuarios/${userId}`);
+          await axios.delete(`http://146.83.198.35:1273/api/usuarios/${userId}`);
           window.location.reload();
         } catch (err) {
           console.error('API Error:', err);
@@ -88,7 +88,7 @@ const TablaMascotas = () =>{
     useEffect(() => {
         const fetchMascotas = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/mascotas');
+                const response = await axios.get('http://146.83.198.35:1273/api/mascotas');
                 console.log('API Response:', response.data);
                 setMascotas(response.data);
             } catch (err) {
@@ -112,7 +112,7 @@ const TablaMascotas = () =>{
 
     const handleDelete = async (mascotaId) => {
         try {
-            await axios.delete(`http://localhost:3000/api/mascotas/${mascotaId}`);
+            await axios.delete(`http://146.83.198.35:1273/api/mascotas/${mascotaId}`);
             window.location.reload();
         } catch (err) {
             console.error('API Error:', err);
@@ -156,7 +156,7 @@ const Perfil = () => {
 
     const handleDelete = async () => {
         try {
-          await axios.delete(`http://localhost:3000/api/usuarios/${auth._id}`);
+          await axios.delete(`http://146.83.198.35:1273/api/usuarios/${auth._id}`);
           location.reload();
         } catch (err) {
           console.error('API Error:', err);

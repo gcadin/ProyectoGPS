@@ -73,7 +73,7 @@ function RegisterForm() {
         }
 
         try {
-            const url = 'http://localhost:3000/api/usuarios';
+            const url = 'http://146.83.198.35:1273/api/usuarios';
             await axios.post(url, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

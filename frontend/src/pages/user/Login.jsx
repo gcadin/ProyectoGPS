@@ -31,7 +31,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try{
-      const url = 'http://localhost:3000/api/login';
+      const url = 'http://146.83.198.35:1273/api/login';
       const { data } = await axios.post(url, {email, password})
       localStorage.setItem('token', data.token);
       window.location.reload();

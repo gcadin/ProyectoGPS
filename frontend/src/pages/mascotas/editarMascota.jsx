@@ -27,7 +27,7 @@ const EditarMascota = () => {
     useEffect(() => {
         const GetInf = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/mascotas/${id}`);
+                const response = await axios.get(`http://146.83.198.35:1273/api/mascotas/${id}`);
                 console.log('API Response:', response.data);
                 setMascota(response.data);
             } catch (err) {
@@ -125,7 +125,7 @@ const EditarMascota = () => {
         }
 
         try {
-            const url = `http://localhost:3000/api/mascotas/${mascota._id}`;
+            const url = `http://146.83.198.35:1273/api/mascotas/${mascota._id}`;
             await axios.put(url, mascota);
             console.log('Success');
             window.location.reload();

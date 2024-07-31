@@ -27,7 +27,7 @@ const AuthProvider = (props) => {
             }
 
             try {
-                const {data} = await axios.get('http://localhost:3000/api/perfil', config)
+                const {data} = await axios.get('http://146.83.198.35:1273/api/perfil', config)
 
                 setAuth(data);
             } catch (error) {

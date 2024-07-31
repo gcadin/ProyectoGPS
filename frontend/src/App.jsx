@@ -9,12 +9,8 @@ import Denuncias from './pages/denuncias/Denuncias';
 import CustomCarousel from './components/Carousel';
 import DenunciaDetails from './pages/denuncias/DenunciaDetails';
 import DenunciaForm from './pages/denuncias/DenunciaForm';
-
-
 import RegistrarMascota from './pages/mascotas/registrarMascota'
-
 import EditarMascota from './pages/mascotas/editarMascota'
-
 import { AuthProvider } from './context/AuthProvider'
 import Perfil from './pages/user/Perfil'
 import UserNav from './layout/UserNav'

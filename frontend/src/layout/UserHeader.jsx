@@ -16,7 +16,7 @@ const Avatar = () => {
     return (
         <Dropdown>
           <Dropdown.Toggle className={`flex justify-center items-center border-0 text-black ${isFocused ? 'bg-white': 'bg-white'} `} variant='outline-dark' onFocus={() => setIsFocused(true)} id="dropdown-basic">
-            {auth.imagen ? <Image width={44} className='rounded-3xl' src={`http://localhost:3000/uploads/${auth.imagen}`} ></Image> :<PersonCircle size={38}/>}
+            {auth.imagen ? <Image width={44} className='rounded-3xl' src={`http://146.83.198.35:1273/${auth.imagen}`} ></Image> :<PersonCircle size={38}/>}
           </Dropdown.Toggle>
             
           <Dropdown.Menu className='bg-white text-black'>
