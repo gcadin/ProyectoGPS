@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-
 .justify-center{
     justify-content: center !important;
 }
@@ -81,9 +77,6 @@
 
     Right: 40px;
 
-}
-body {
-  padding-top: 70px; 
 }
 
 .navbar2 {

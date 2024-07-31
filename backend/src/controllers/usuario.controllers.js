@@ -115,7 +115,7 @@ module.exports = {
     updateUsuario,
     deleteUsuario,
     autenticarUsuario,
-    perfil
+    perfil,
     deleteUsuario,
     autenticarUsuario,
     perfil
