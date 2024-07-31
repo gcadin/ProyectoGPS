@@ -36,10 +36,6 @@ function RegisterForm() {
             newErrors.apellidos = 'Apellidos invalidos';
         }
 
-        if (telefono.length !== 9) {
-            newErrors.telefono = 'Número de teléfono no válido';
-        }
-
         if (direccion.length < 5) {
             newErrors.direccion = 'Dirección no válida';
         }
@@ -145,7 +141,7 @@ function RegisterForm() {
                             <Form.Group as={Col} md={4} className="mb-3" controlId="Telefono">
                                 <Form.Label><b>Teléfono:</b></Form.Label>
                                 <InputGroup>
-                                    <InputGroup.Text id="inputGroupPrepend">+56</InputGroup.Text>
+                                    <InputGroup.Text id="inputGroupPrepend">+569</InputGroup.Text>
                                     <Form.Control
                                         required
                                         value={telefono}
@@ -153,7 +149,7 @@ function RegisterForm() {
                                         className='border'
                                         type="number"
                                         name='telefono'
-                                        placeholder='9 87654321'
+                                        placeholder='87654321'
                                     />
                                 </InputGroup>
                                 {errors.telefono && <div className="text-danger">{errors.telefono}</div>}
