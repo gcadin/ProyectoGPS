@@ -24,7 +24,7 @@ const crearMascota = async (req, res) => {
 };
 const getMascotas = async (req, res) => {
     try {
-        const Mascotas = await Mascota.find();
+        const Mascotas = await Mascota.find().populate('usuario');
         res.status(200).json(Mascotas);
     } catch (error) {
         res.status(400).json({ message: error.message });
