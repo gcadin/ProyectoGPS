@@ -111,6 +111,7 @@ const UserSideBar = () => {
                       <span>Gestionar</span>
                     </SidebarMenu.Nav.Title>
                   </SidebarMenu.Nav.Link>
+                  
                 </SidebarMenu.Nav>
               </SidebarMenu.Sub.Collapse>
             </SidebarMenu.Sub>
@@ -119,6 +120,7 @@ const UserSideBar = () => {
               <SidebarMenu.Sub.Toggle className="flex justify-center items-center ml-2 text-white font-bold">
                 <SidebarMenu.Nav.Icon className="mr-2">
                   <ExclamationOctagonFill />
+                  
                 </SidebarMenu.Nav.Icon>
                 <SidebarMenu.Nav.Title>
                   <span>Denuncias</span>

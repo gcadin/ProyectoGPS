@@ -7,7 +7,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
-import { popError } from '../../utils/popUp';
+import { popError, popSuccess } from '../../utils/popUp';
 
 function RegisterForm() {
     const [email, setEmail] = useState("");
@@ -56,6 +56,9 @@ function RegisterForm() {
             setErrors(newErrors);
             return;
         }
+        if (telefono.lenght>8){
+            newErrors.telefono = 'Número de telefono no valido';
+        }
 
         //------validaciones----------------------------
 
@@ -77,6 +80,7 @@ function RegisterForm() {
             });
             console.log('Success');
             <Navigate to='/login' />
+            popSuccess('Se ha registrado correctamente :D');
         } catch (err) {
             console.log(err);
             popError('Correo electronico invalido');
