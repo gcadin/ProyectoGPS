@@ -160,7 +160,6 @@ const Perfil = () => {
         if (await confirmDeletion('¿Estás seguro de eliminar este usuario?')) {
             try {
               await axios.delete(`http://146.83.198.35:1273/api/usuarios/${auth._id}`);
-              popSuccess2('Eliminado Correctamente');
             } catch (err) {
               popError('No se ah logrado eliminar');
               console.error('API Error:', err);
