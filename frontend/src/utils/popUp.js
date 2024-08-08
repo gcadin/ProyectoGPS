@@ -28,3 +28,17 @@ export const popSuccess2 = (message) => {
     window.location.reload();
   });
 };
+
+export const confirmDeletion = async (message) => {
+  const result = await Swal.fire({
+    title: '¿Estás seguro?',
+    text: message,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor:   
+ '#d33',
+    confirmButtonText: 'Eliminar',
+    cancelButtonText: 'Cancelar'   
+
+  });
