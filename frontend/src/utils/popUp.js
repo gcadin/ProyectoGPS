@@ -42,3 +42,5 @@ export const confirmDeletion = async (message) => {
     cancelButtonText: 'Cancelar'   
 
   });
+  return result.isConfirmed;
+};
