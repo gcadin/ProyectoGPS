@@ -7,6 +7,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import UserSideBar from '../../layout/userSideBar';
 import useAuth from '../../hooks/useAuth';
+import { popSuccess, popError } from '../../utils/popUp';
 
 const RegistrarMascota = () => {
   const { auth } = useAuth();
@@ -122,10 +123,10 @@ const RegistrarMascota = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('Success');
-      window.location.reload();
+      popSuccess('Mascota Registrada Correctamente');
+      form.reset();
     } catch (err) {
-      console.log(err);
+      popError('Lo sentimos, no se ha podido registrar la mascota');
     }
   };
 
