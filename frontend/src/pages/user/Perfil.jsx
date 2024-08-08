@@ -11,7 +11,7 @@ import UserTable from "../../components/UserTable";
 import { useState, useEffect } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import MascotasTable from "../../components/MascotasTable";
-import { popError, popSuccess2, confirmDeletion } from '../../utils/popUp';
+import { popError, popSuccess2} from '../../utils/popUp';
 
 const PanelAdmin = () => {
     return(
@@ -157,13 +157,11 @@ const Perfil = () => {
     
 
     const handleDelete = async () => {
-        if (await confirmDeletion('¿Estás seguro de eliminar este usuario?')) {
-            try {
-              await axios.delete(`http://146.83.198.35:1273/api/usuarios/${auth._id}`);
-            } catch (err) {
-              popError('No se ah logrado eliminar');
-              console.error('API Error:', err);
-            }
+        try {
+          await axios.delete(`http://146.83.198.35:1273/api/usuarios/${auth._id}`);
+        } catch (err) {
+          popError('No se ah logrado eliminar');
+          console.error('API Error:', err);
         }
       };
 
