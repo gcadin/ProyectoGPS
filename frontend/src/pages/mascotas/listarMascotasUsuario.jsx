@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
 import UserSideBar from '../../layout/userSideBar';
+import { popSuccess, popError } from '../../utils/popUp';
 
 const MascotasListUser = () => {
   const {auth} = useAuth();
@@ -13,8 +14,11 @@ const MascotasListUser = () => {
   const handleDelete = async (e) => {
     try {
       await axios.delete(`http://146.83.198.35:1273/api/mascotas/${e.target.value}`);
+      popSuccess('Publicación Eliminada Correctamente');
+      form.reset();
       location.reload();
     } catch (err) {
+      popError('Lo sentimos:(. No hemos podido eliminar tu publicacion. Por favor intentelo mas tarde');
       console.error('API Error:', err);
     }
   };
