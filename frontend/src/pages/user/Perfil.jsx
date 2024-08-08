@@ -11,7 +11,7 @@ import UserTable from "../../components/UserTable";
 import { useState, useEffect } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import MascotasTable from "../../components/MascotasTable";
-
+import { popError, popSuccess } from '../../utils/popUp';
 
 const PanelAdmin = () => {
     return(
@@ -54,8 +54,10 @@ const TablaUsuarios = () =>{
     const handleDelete = async (userId) => {
         try {
           await axios.delete(`http://146.83.198.35:1273/api/usuarios/${userId}`);
+          popSuccess('Eliminado Correctamente');
           window.location.reload();
         } catch (err) {
+          popError('No se ah logrado eliminar');
           console.error('API Error:', err);
         }
     };
@@ -113,8 +115,10 @@ const TablaMascotas = () =>{
     const handleDelete = async (mascotaId) => {
         try {
             await axios.delete(`http://146.83.198.35:1273/api/mascotas/${mascotaId}`);
+            popSuccess('Eliminado Correctamente');
             window.location.reload();
         } catch (err) {
+            popError('No se ah logrado eliminar');
             console.error('API Error:', err);
         }
     };
