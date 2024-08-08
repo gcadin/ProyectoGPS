@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import UserSideBar from '../../layout/userSideBar';
-import { popSuccess, popError } from '../../utils/popUp';
+import { popSuccess2, popError } from '../../utils/popUp';
 
 const EditarMascota = () => {
     const { id } = useParams();
@@ -128,9 +128,7 @@ const EditarMascota = () => {
         try {
             const url = `http://146.83.198.35:1273/api/mascotas/${mascota._id}`;
             await axios.put(url, mascota);
-            popSuccess('Información actualizada Correctamente');
-            form.reset();
-            window.location.reload();
+            popSuccess2('Información actualizada Correctamente');
         } catch (err) {
             popError('Lo sentimos:(. No hemos podido actualizar la información. Por favor intentelo mas tarde');
             console.log(err);
