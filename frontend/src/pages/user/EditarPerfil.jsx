@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import UserSideBar from '../../layout/userSideBar';
+import { popError, popSuccess } from '../../utils/popUp';
 
 const formatDate = (isoDate) => {
   const [year, month, day] = isoDate.split('T')[0].split('-');
@@ -84,10 +85,10 @@ function EditarPerfil() {
     try {
       const url = `http://146.83.198.35:1273/api/usuarios/${auth._id}`;
       await axios.put(url, formData);
-      console.log('Success');
-      navigate('/perfil');
+      popSuccess('Información Actualizada Correctamente');
+      form.reset();
     } catch (err) {
-      console.log(err);
+      popError('No se ah podido modificar la informacion');
     }
   };
 
