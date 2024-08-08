@@ -17,3 +17,14 @@ export const popSuccess = (message) => {
     confirmButtonText: 'Cool'
   });
 };
+
+export const popSuccess2 = (message) => {
+  return Swal.fire({
+    title: 'Éxito!',
+    text: message,
+    icon: 'success',
+    confirmButtonText: 'Cool'
+  }).then(() => {
+    window.location.reload();
+  });
+};
