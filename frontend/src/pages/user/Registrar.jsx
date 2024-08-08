@@ -78,11 +78,9 @@ function RegisterForm() {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            console.log('Success');
-            <Navigate to='/login' />
             popSuccess('Se ha registrado correctamente :D');
+            form.reset();
         } catch (err) {
-            console.log(err);
             popError('Correo electronico invalido');
         }
     }
