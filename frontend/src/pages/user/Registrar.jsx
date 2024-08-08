@@ -44,21 +44,23 @@ function RegisterForm() {
             newErrors.password2 = 'Las contraseñas no son iguales';
         }
 
-        if (password.length < 8 || password.length > 8 ) {
-            newErrors.password = 'Deben ser 8 numeros';
+        if (password.length < 8) {
+            newErrors.password = 'Minimo 8 caracteres';
         }
 
-        if (password2.length < 8 || password.length > 8 ) {
-            newErrors.password2 = 'Deben ser 8 numeros';
+        if (password2.length < 8) {
+            newErrors.password2 = 'Minimo 8 caracteres';
+        }
+
+        if (telefono.lenght > 8){
+            newErrors.telefono = 'Número de telefono no valido';
         }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
         }
-        if (telefono.lenght>8){
-            newErrors.telefono = 'Número de telefono no valido';
-        }
+       
 
         //------validaciones----------------------------
 
