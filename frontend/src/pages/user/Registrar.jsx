@@ -44,12 +44,12 @@ function RegisterForm() {
             newErrors.password2 = 'Las contraseñas no son iguales';
         }
 
-        if (password.length < 8) {
-            newErrors.password = 'Mínimo 9 caracteres';
+        if (password.length < 8 || password.length > 8 ) {
+            newErrors.password = 'Deben ser 8 numeros';
         }
 
-        if (password2.length < 8) {
-            newErrors.password2 = 'Mínimo 9 caracteres';
+        if (password2.length < 8 || password.length > 8 ) {
+            newErrors.password2 = 'Deben ser 8 numeros';
         }
 
         if (Object.keys(newErrors).length > 0) {
@@ -81,7 +81,7 @@ function RegisterForm() {
             popSuccess('Se ha registrado correctamente :D');
             form.reset();
         } catch (err) {
-            popError('Correo electronico invalido');
+            popError('Lo sentimos, ya existe una cuenta asociada al correo electronico');
         }
     }
 
