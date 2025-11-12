@@ -15,17 +15,15 @@ const checkAuth = async (req, res, next) => {
             
             return next();
         } catch (error) {
-            const e = new Error('token invalido');
-            //res.status(403).json({msg: e.message})
+            const e = new Error('Token no válido');
+            return res.status(403).json({msg: e.message});
         }
     }
 
     if(!token){
-        const error = new Error('token invalido o inexistente');
-        res.status(403).json({msg: error.message})
+        const error = new Error('Token no válido o inexistente');
+        return res.status(403).json({msg: error.message});
     }
-
-    next();
 }
 
 module.exports = checkAuth;
