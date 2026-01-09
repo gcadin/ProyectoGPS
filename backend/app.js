@@ -34,5 +34,3 @@ app.listen(port, '0.0.0.0', () => {
 app.get("/",(req,res) => {
     res.sendFile(path.join(__dirname + "/index.html"));
 });
-
-//ahi si se logro
